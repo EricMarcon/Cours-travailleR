@@ -13,7 +13,6 @@ output:
       in_header: EcoFoGBeamer.tex
     keep_tex: no
     slide_level: 2
-    number_sections: no
   ioslides_presentation:
     logo: images/EcoFoG2020.png
     widescreen: true
