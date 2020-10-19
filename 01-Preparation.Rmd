@@ -1,0 +1,234 @@
+---
+title: 'R: Préparation'
+author: "Eric Marcon"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  ioslides_presentation:
+    logo: images/EcoFoG2020.png
+  beamer_presentation:
+    df_print: kable
+    fig_caption: no
+    includes:
+      in_header: EcoFoGBeamer.tex
+    keep_tex: no
+    slide_level: 2
+---
+
+```{r setup, include=FALSE}
+### knitr and R options (packages, ...)
+# echo=FALSE not to display R chunk in slides. Set to TRUE if necessary.
+knitr::opts_chunk$set(echo = FALSE)
+# tidy R chunks.
+knitr::opts_chunk$set(tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=50))
+# R console width
+options(width=50)
+# Installation des packages si nécessaire et chargement
+Library <- function(Packages) {
+  InstallAndLoad <- function(Package) {
+    if (!Package %in% installed.packages()[, 1]) {install.packages(Package, repos="https://cran.rstudio.com/")}
+    require(Package, character.only = TRUE)
+  }
+  invisible(sapply(Packages, InstallAndLoad))
+}
+# Ajouter les packages nécessaires ici
+Library(c("kableExtra", "formatR", "tidyverse"))
+# Set ggplotting to bw plot default, but with transparent background elements.  
+theme_set(theme_bw(base_size=12))
+theme_update(panel.background = element_rect(fill = "transparent", colour = NA),
+             plot.background = element_rect(fill = "transparent", colour = NA))
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+# Tibbles: 5 lines, fit to slide width
+options(tibble.print_min = 5, tibble.width = 50)
+```
+
+# R
+
+## Espace de travail hors git
+
+Dossier personnel, appelé **\~** par RStudio :
+
+```{r R_USER, echo=TRUE}
+Sys.getenv("R_USER")
+```
+
+-   Mes Documents sous Windows ;
+
+-   Home sous Mac ou Linux.
+
+Travailler dans un sous-dossier, par exemple : *Formation*.
+
+Pas d'espace ni caractère spécial dans les noms de dossier.
+
+Dossier sauvegardé par le système, non optimal.
+
+## Espace de travail sous git
+
+Créer un dossier ouvert en écriture mais non sauvegardé.
+
+Sous Windows:
+
+    md %LOCALAPPDATA%\ProjetsR
+
+Travailler un sous-dossiers, par exemple : *Formation*.
+
+Pas d'espace ni caractère spécial dans les noms de dossier.
+
+## Librairies système et utilisateur
+
+Stockage des packages dans la librairie système si R peut y écrire.
+
+```{r R-library, echo=FALSE, out.width='40%'}
+knitr::include_graphics("images/R-library.png")
+```
+
+Utile si `~` est sauvegardé.
+
+# RStudio
+
+## Environnement de travail
+
+Incontournable.
+
+Intègre la majorité des outils utiles.
+
+Version \> 1 indispensable.
+
+[RStudio Server](https://www.ecofog.gf/RStudio1/) est strictement équivalent.
+
+Dans le cloud : <https://rstudio.cloud/projects>
+
+## Projets
+
+Organiser le travail en projets :
+
+-   un dossier dans \~ (ou un sous-dossier de \~) ou `ProjetsR` ;
+
+-   un fichier .Rproj dans le dossier.
+
+Création par le menu *New Project*.
+
+Pas de caractères spéciaux, pas d'espace dans le nom.
+
+## Environnement de travail
+
+La fenêtre *Environnement* liste les variables et fonctions.
+
+-   Sauvegarde dans un fichier RData / Ouverture d'un RData ;
+
+-   Sauvegarde automatique en fin de session.
+
+La fenêtre *History* liste l'historique des commandes:
+
+-   Sauvegarde, idem ;
+
+-   Envoi à la console ou au fichier source.
+
+## Packages
+
+Utiliser un fichier *Packages.R*.
+
+```{r Packages, echo=TRUE, eval=FALSE}
+# Install necessary packages only
+InstallPackages <- function(Packages) {
+  sapply(Packages, function(Package) 
+    if (!Package %in% installed.packages()[, 1]) install.packages(Package))
+}
+# Markdown
+InstallPackages(c("base64enc", "knitr", "rmarkdown", "bookdown"))
+# Other packages
+InstallPackages(c("RODBC", "devtools"))
+# EcoFoG
+devtools::install_github("EcoFoG/EcoFoG")
+```
+
+Mis en pratique à la fin de la séquence.
+
+## Package EcoFoG
+
+[Sur GitHub](https://ecofog.github.io/EcoFoG/Introduction.html).
+
+Contient des modèles d'article, de présentation, d'ouvrage.
+
+Contient du code à usage interne :
+
+-   Accès à la base Guyafor ;
+
+-   Outil pour la création de cartes de Paracou.
+
+# Logiciels
+
+## Architecture
+
+R utilise des packages et appelle des programmes externes pour la création de documents et de packages.
+
+Liste avec liens maintenue dans la [vignette du package EcoFoG](https://ecofog.github.io/EcoFoG/Introduction.html#environnement-logiciel).
+
+## Packages R
+
+-   devtools : utilitaires pour le développement ;
+
+-   knitr, rmarkdown, bookdown: rédaction avec RMarkdown.
+
+Utiliser *Packages.R* pour une réinstallation rapide.
+
+## LaTeX
+
+Production de fichiers PDF :
+
+-   Présentations Beamer ;
+
+-   Articles et ouvrages PDF.
+
+Installer *MikTex* sous Windows, *MacTex* sous Mac, *TexLive* sous Linux.
+
+Compléter par *TeXstudio* pour débugger les compilations difficiles et *Jabref* pour gérer les fichiers bib.
+
+## Bibliographie
+
+Utiliser un gestionnaire bibliographique capable de produire un fichier *bib* : *Mendeley* ou *Zotero.*
+
+*Jabref* permet de gérer totalement sa bibliographie au format *BibTeX*.
+
+## Développement
+
+Sous Windows, compléter R par Rtools : outils pour R.
+
+Installations souhaitables :
+
+-   ImageMagik : traitement des images ;
+
+-   qpdf : vérification de la compression des fichiers PDF ;
+
+-   Ghostscript : traitement des fichiers PDF.
+
+## Git
+
+*Git* est un outil de gestion de sources.
+
+Le moteur de Git doit être installé.
+
+RStudio intègre une interface pour Git.
+
+Ouvrir un compte sur [GitHub](https://github.com/) pour collaborer.
+
+# Pratique
+
+## Installations
+
+Installer R et RStudio.
+
+Installer git. Ouvrir un compte sur GitHub.
+
+## Adhésion à la classe GitHub
+
+Valider l'invitation envoyée pour la classe Cours-R.
+
+Lier son nom d'invité et son compte GitHub.
+
+Accepter l'assignation Cours-R-Introduction.
+
+## Cours-R-Introduction
+
+Contient des ressources.
+
+Récupérer le fichier `Packages.R` et le placer dans `~`
