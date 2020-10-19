@@ -30,3 +30,10 @@
 \makeatletter
 \let\@@magyar@captionfix\relax
 \makeatother
+
+% Delete "Section n" in the section frames
+\AtBeginSection{
+\let\insertsectionnumber\relax
+\let\sectionname\relax
+\frame{\sectionpage}
+}
