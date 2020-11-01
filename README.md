@@ -33,3 +33,8 @@ Utiliser R Markdown pour la rédaction de documents reproductibles : mémos, art
 [Voir le support](https://EricMarcon.github.io/Cours-travailleR/21-Rediger.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/21-Rediger.pdf)
 
 
+# Langage
+
+Aspects avancés du langage de R
+
+[Voir le support](https://EricMarcon.github.io/Cours-travailleR/31-Langage.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/31-Langage.pdf)

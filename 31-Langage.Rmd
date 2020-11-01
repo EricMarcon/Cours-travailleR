@@ -331,7 +331,7 @@ Principes :
 ## Hiérarchie des environnements
 
 ```{r R-library, echo=FALSE, out.width='95%'}
-knitr::include_graphics("Graphics/map-of-the-world.png")
+knitr::include_graphics("images/map-of-the-world.png")
 ```
 
 [Référence](http://blog.obeautifulcode.com/R/How-R-Searches-And-Finds-Stuff/)
@@ -367,7 +367,7 @@ parent.env(f())
 La recherche part de l'environnement global (ou de celui d'une fonction appelée) et descend la colonne de droite.
 
 ```{r, echo=FALSE, out.width='70%'}
-knitr::include_graphics("Graphics/map-of-the-world.png")
+knitr::include_graphics("images/map-of-the-world.png")
 ```
 
 Les packages doivent être attachés pour y être.
@@ -378,18 +378,18 @@ Les packages doivent être attachés pour y être.
 Un package chargé est dans la colonne centrale: son espace de noms est accessible mais ses objets ne sont pas inclus dans la recherche.
 
 ```{r, echo=FALSE, out.width='70%'}
-knitr::include_graphics("Graphics/map-of-the-world.png")
+knitr::include_graphics("images/map-of-the-world.png")
 ```
 
 
 ## Packages chargés non attachés 
 
-devtools peut être chargé sans être attaché :
+**pryr** peut être chargé sans être attaché :
 
 ```{r, message=FALSE}
-unloadNamespace("devtools")
-isNamespaceLoaded("devtools")
-loadNamespace("devtools")
+unloadNamespace("pryr")
+isNamespaceLoaded("pryr")
+loadNamespace("pryr")
 
 ```
 
@@ -397,16 +397,16 @@ loadNamespace("devtools")
 
 ```{r}
 search()
-isNamespaceLoaded("devtools")
+isNamespaceLoaded("pryr")
 ```
 
 ## Appel explicite d'un objet
 
-La fonction `dr_devtools()` ne peut pas être trouvée mais elle peut être utilisée :
+La fonction `otype()` ne peut pas être trouvée mais elle peut être utilisée :
 
 ```{r}
-tryCatch(dr_devtools,  error= function(e) print(e))
-devtools::dr_devtools()
+tryCatch(otype(1),  error= function(e) print(e))
+pryr::otype(1)
 ```
 
 
@@ -448,7 +448,7 @@ Les packages s'appuient sur d'autres packages.
 Ils peuvent les importer : `ggplot2` importe plyr.
 
 ```{r, echo=FALSE, out.width='70%'}
-knitr::include_graphics("Graphics/imports-depends-plyr.png")
+knitr::include_graphics("images/imports-depends-plyr.png")
 ```
 
 Ou en dépendre : `ggplot2` dépend de `reshape`.
