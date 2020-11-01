@@ -19,3 +19,10 @@ Installation de l'environnement de travail.
 [Voir le support](https://EricMarcon.github.io/travailleR/11-Preparation.html) ou le [télécharger](https://EricMarcon.github.io/travailleR/11-Preparation.pdf)
 
 
+# Contrôle de Source
+
+Utiliser git et GitHub pour le contrôle de source, la collaboration et la publication de documents.
+
+[Voir le support](https://EricMarcon.github.io/travailleR/12-git.html) ou le [télécharger](https://EricMarcon.github.io/travailleR/12-git.pdf)
+
+

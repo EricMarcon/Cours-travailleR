@@ -1,6 +1,6 @@
-# R avancé
+# Travailler avec R
 
-Ceci est le support du cours R avancé de l'Ecole doctorale de l'Université de Guyane.
+Ceci est le support du cours Travailler avec R
 
 
 # Prérequis
@@ -16,6 +16,13 @@ Formations préalables :
 
 Installation de l'environnement de travail.
 
-[Voir le support](https://EricMarcon.github.io/Cours-R-avance/Preparation.html) ou le [télécharger](https://EricMarcon.github.io/Cours-R-avance/Preparation.pdf)
+[Voir le support](https://EricMarcon.github.io/travailleR/11-Preparation.html) ou le [télécharger](https://EricMarcon.github.io/travailleR/11-Preparation.pdf)
+
+
+# Contrôle de Source
+
+Utiliser git et GitHub pour le contrôle de source, la collaboration et la publication de documents.
+
+[Voir le support](https://EricMarcon.github.io/travailleR/12-git.html) ou le [télécharger](https://EricMarcon.github.io/travailleR/12-git.pdf)
 
 
