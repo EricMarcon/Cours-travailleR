@@ -16,13 +16,20 @@ Formations préalables :
 
 Installation de l'environnement de travail.
 
-[Voir le support](https://EricMarcon.github.io/travailleR/11-Preparation.html) ou le [télécharger](https://EricMarcon.github.io/travailleR/11-Preparation.pdf)
+[Voir le support](https://ericmarcon.github.io/Cours-travailleR/11-Preparation.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/11-Preparation.pdf)
 
 
 # Contrôle de Source
 
 Utiliser git et GitHub pour le contrôle de source, la collaboration et la publication de documents.
 
-[Voir le support](https://EricMarcon.github.io/travailleR/12-git.html) ou le [télécharger](https://EricMarcon.github.io/travailleR/12-git.pdf)
+[Voir le support](https://EricMarcon.github.io/Cours-travailleR/12-git.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/12-git.pdf)
+
+
+# Rédiger avec R Markdown
+
+Utiliser R Markdown pour la rédaction de documents reproductibles : mémos, articles, rapports, thèses, livres, sites web.
+
+[Voir le support](https://EricMarcon.github.io/Cours-travailleR/21-Rediger.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/21-Rediger.pdf)
 
 
