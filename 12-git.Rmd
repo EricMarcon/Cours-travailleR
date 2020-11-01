@@ -237,3 +237,25 @@ Exécuter:
 ```
 git merge branche_a_fusionner
 ```
+
+
+# Fork et Pull Request
+
+## Fork
+
+Objectif : modifier le dépôt d'un autre
+
+[Fourcher](https://help.github.com/articles/fork-a-repo/): création d'une copie du dépôt
+
+Commencer une nouvelle branche, la modifier.
+
+
+## Pull Request
+
+Demande d'intégration de la branche: _Pull Request_.
+
+Sur GitHub.
+
+Dialogue possible.
+
+Si acceptation, fusion de la branche et suppression.
