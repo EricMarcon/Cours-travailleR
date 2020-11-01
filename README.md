@@ -1,6 +1,6 @@
 # Travailler avec R
 
-Ceci est le support du cours Travailler avec R
+Ceci est le support du cours Travailler avec R qui complète le manuel [Travailler avec R](https://ericmarcon.github.io/travailleR/).
 
 
 # Prérequis
