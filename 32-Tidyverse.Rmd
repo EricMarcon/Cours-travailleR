@@ -3,6 +3,8 @@ title: 'R: Tidyverse'
 author: "Eric Marcon"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  ioslides_presentation:
+    logo: images/EcoFoG2020.png
   beamer_presentation:
     df_print: default
     fig_caption: no
@@ -10,8 +12,6 @@ output:
       in_header: EcoFoGBeamer.tex
     keep_tex: no
     slide_level: 2
-  ioslides_presentation:
-    logo: images/EcoFoG2020.png
   slidy_presentation: default
 ---
 ```{r setup, include=FALSE}
@@ -70,7 +70,7 @@ ggplot2::diamonds
 Le package _magrittr_ introduit le pipe ` %>% ` (`Ctrl + Shift + m`)
 
 ```{r, echo=FALSE, out.width='50%'}
-knitr::include_graphics(c("Graphics/magritte.jpg", "Graphics/magrittr.jpg"))
+knitr::include_graphics(c("images/magritte.jpg", "images/magrittr.jpg"))
 ```
 
 Modèle du pipeline de la programmation système repris par la bioinformatique
@@ -163,7 +163,7 @@ Plus rapide que les fonctions originales.
 
 
 ```{r, echo=FALSE, out.width='90%'}
-knitr::include_graphics("Graphics/tidy-1.png")
+knitr::include_graphics("images/tidy-1.png")
 ```
 
 Approche habituelle en écologie (analyse multivariée par exemple)
@@ -221,7 +221,7 @@ Paracou6 <- unite(data=Paracou6, col=spName, Family, Genus, Species, remove = FA
 Opération contraire
 
 ```{r, echo=FALSE, out.width='100%'}
-knitr::include_graphics("Graphics/tidy-17.png")
+knitr::include_graphics("images/tidy-17.png")
 ```
 
 
@@ -230,7 +230,7 @@ knitr::include_graphics("Graphics/tidy-17.png")
 Opération inverse de la création d'un tableau croisé
 
 ```{r, echo=FALSE, out.width='100%'}
-knitr::include_graphics("Graphics/tidy-9.png")
+knitr::include_graphics("images/tidy-9.png")
 ```
 
 
@@ -239,7 +239,7 @@ knitr::include_graphics("Graphics/tidy-9.png")
 Crée une colonne par modalité d'une variable
 
 ```{r, echo=FALSE, out.width='90%'}
-knitr::include_graphics("Graphics/tidy-8.png")
+knitr::include_graphics("images/tidy-8.png")
 ```
 
 
@@ -390,9 +390,9 @@ Chaque statistique a un `geom_` par défaut :
 ggplot(data = diamonds) + 
   stat_summary(
     mapping = aes(x = cut, y = depth),
-    fun.ymin = min,
-    fun.ymax = max,
-    fun.y = median
+    fun.min = min,
+    fun.max = max,
+    fun = median
   )
 ```
 
@@ -492,7 +492,7 @@ Utiliser `scale_color_xxx` et `scale_fill_xxx`
 Le suffixe `_brewer` est pour utiliser des palettes de [ColorBrewer](http://colorbrewer2.org)
 
 ```{r, echo=FALSE, out.width='60%'}
-knitr::include_graphics("Graphics/brewer.all.jpg")
+knitr::include_graphics("images/brewer.all.jpg")
 ```
 
 ## Gestion des couleurs
@@ -524,5 +524,5 @@ Paracou618.MC$Ns %>% as.AbdVector %>%
 De nombreux packages étendent _ggplot2_ avec de nouveaux `geom_`. Exemple de _ggraph_ :
 
 ```{r, echo=FALSE, out.width='80%'}
-knitr::include_graphics("Graphics/ggraph.png")
+knitr::include_graphics("images/ggraph.png")
 ```

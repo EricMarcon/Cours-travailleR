@@ -481,7 +481,7 @@ Imports: stats
 ## Règles de dépendance
 
 ```{r R-library, echo=FALSE, out.width='80%'}
-knitr::include_graphics("Graphics/imports-depends-plyr.png")
+knitr::include_graphics("images/imports-depends-plyr.png")
 ```
 
 Dans `DESCRIPTION`:

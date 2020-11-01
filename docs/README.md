@@ -38,3 +38,17 @@ Utiliser R Markdown pour la rédaction de documents reproductibles : mémos, art
 Aspects avancés du langage de R
 
 [Voir le support](https://EricMarcon.github.io/Cours-travailleR/31-Langage.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/31-Langage.pdf)
+
+
+# TidyVerse
+
+Les bases de l'univers bien rangé.
+
+[Voir le support](https://EricMarcon.github.io/Cours-travailleR/32-Tidyverse.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/32-Tidyverse.pdf)
+
+
+# Package
+
+Ecrire un package.
+
+[Voir le support](https://EricMarcon.github.io/Cours-travailleR/33-Package.html) ou le [télécharger](https://EricMarcon.github.io/Cours-travailleR/33-Package.pdf)
