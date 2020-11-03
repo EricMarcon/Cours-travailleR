@@ -6,6 +6,9 @@ preamble: >
   \usepackage{textcomp}
   \DeclareUnicodeCharacter{B0}{\textdegree}
 output:
+  ioslides_presentation:
+    logo: images/EcoFoG2020.png
+    widescreen: true
   beamer_presentation:
     df_print: kable
     fig_caption: no
@@ -13,9 +16,6 @@ output:
       in_header: EcoFoGBeamer.tex
     keep_tex: no
     slide_level: 2
-  ioslides_presentation:
-    logo: images/EcoFoG2020.png
-    widescreen: true
   slidy_presentation: default
 ---
 
@@ -64,7 +64,10 @@ GitHub est une plateforme pour la collaboration basée sur Git.
 - Présentation des résultats : pages GitHub ;
 - Intégration continue: Travis.
 
+
 # Mise en place
+
+## git
 
 RStudio doit détecter Git
 
@@ -75,7 +78,7 @@ knitr::include_graphics("images/Roptions.PNG")
 Sinon, l'installer.
 
 
-## Mise en place
+## GitHub
 
 Ouvrir un compte sur GitHub
 
