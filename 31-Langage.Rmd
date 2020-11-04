@@ -177,16 +177,16 @@ pryr::otype(MoiRC)
 MoiRC$print()
 ```
 
-## S6
+## R6
 
-[S6](https://cran.r-project.org/web/packages/R6/vignettes/Introduction.html) perfectionne RC mais n'est pas inclus dans R.
+[R6](https://cran.r-project.org/web/packages/R6/vignettes/Introduction.html) perfectionne RC mais n'est pas inclus dans R.
 
 Les attributs et les méthodes peuvent être publics ou privés.
 
 Une méthode `initialize()` est utilisée comme constructeur.
 
 
-```{r S6-Class}
+```{r R6-Class}
 library(R6)
 PersonneR6 <- R6Class("PersonneR6", 
                       public = list(Nom="character", Prenom="character",
@@ -197,7 +197,7 @@ MoiR6 <- PersonneR6$new(Nom = "Marcon", Prenom ="Eric")
 MoiR6$print()
 ```
 
-## RC et S6 - Résumé
+## RC et R6 - Résumé
 
 Très peu utilisés, plutôt considérés comme des exercices de style.
 
