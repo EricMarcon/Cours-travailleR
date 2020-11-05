@@ -10,6 +10,8 @@ Depends:
 Imports:
   devEMF,
   devtools,
+  EcoFoG,
+  entropart,
   formatR, 
   kableExtra,
   methods,
@@ -19,4 +21,6 @@ Imports:
   roxygen2,
   rversions,
   tidyverse
+Remotes:
+  EcoFoG/EcoFoG
 License: GPL-3
