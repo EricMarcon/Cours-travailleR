@@ -1,0 +1,50 @@
+language: r
+os: linux
+dist: xenial
+pandoc_version: 2.7.3
+
+warnings_are_errors: false    # Versions de R pour la construction des packages
+
+cache:
+  packages: true
+  directories: 
+    - $HOME/.npm
+    - Krigeage_cache
+    - Krigeage_files
+    - libs
+
+branches:
+  only:
+    - master
+
+# Packages binaires à partir de RStudio
+before_install:
+  - echo "options(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/xenial/latest'))" >> ~/.Rprofile.site
+  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (',
+       paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']),
+       ')'))" >> ~/.Rprofile.site
+
+r_packages:
+    - bookdown
+
+script:
+  - travis_wait 60 Rscript -e "rmarkdown::render('11-Preparation.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('12-git.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('21-Rediger.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('31-Langage.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "source('GithubPages.R')"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: docs
+  on:
+    branch: master
+
+notifications:
+  email:
+    on_success: always # default: change

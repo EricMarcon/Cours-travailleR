@@ -1,0 +1,22 @@
+Package: Cours-travailleR
+Title: Support du cours Travailler avec R
+Version: 1.0.0
+Authors@R: c(
+  person("Eric", "Marcon", , "e.marcon@free.fr", c("aut", "cre"))
+  )
+URL: https://github.com/EricMarcon/Cours-travailleR
+Depends:
+  R (>= 3.1.0)
+Imports:
+  devEMF,
+  devtools,
+  formatR, 
+  kableExtra,
+  methods,
+  microbenchmark,
+  pryr,
+  R6,
+  roxygen2,
+  rversions,
+  tidyverse
+License: GPL-3
