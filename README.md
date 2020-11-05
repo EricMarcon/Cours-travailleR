@@ -1,4 +1,7 @@
 # Travailler avec R
+![stability-wip](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
+[![Travis-CI Build Status](https://travis-ci.org/EricMarcon/Cours-travailleR.svg?branch=master)](https://travis-ci.org/EricMarcon/Cours-travailleR)
+
 
 Ceci est le support du cours Travailler avec R qui complète le manuel [Travailler avec R](https://ericmarcon.github.io/travailleR/).
 
