@@ -87,6 +87,7 @@ knitr::include_graphics("images/r_library.png")
 
 Utile si `~` est sauvegardé.
 
+
 # RStudio
 
 ## Environnement de travail
@@ -159,6 +160,7 @@ Contient du code à usage interne :
 
 -   Outil pour la création de cartes de Paracou.
 
+
 # Logiciels
 
 ## Architecture
@@ -205,6 +207,7 @@ Installations souhaitables :
 
 -   Ghostscript : traitement des fichiers PDF.
 
+
 ## Git
 
 *Git* est un outil de gestion de sources.
@@ -214,6 +217,7 @@ Le moteur de Git doit être installé.
 RStudio intègre une interface pour Git.
 
 Ouvrir un compte sur [GitHub](https://github.com/) pour collaborer.
+
 
 # Pratique
 
