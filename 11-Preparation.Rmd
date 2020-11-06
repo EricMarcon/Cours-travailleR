@@ -6,6 +6,9 @@ preamble: >
   \usepackage{textcomp}
   \DeclareUnicodeCharacter{B0}{\textdegree}
 output:
+  ioslides_presentation:
+    logo: images/EcoFoG2020.png
+    widescreen: true
   beamer_presentation:
     df_print: kable
     fig_caption: no
@@ -13,10 +16,7 @@ output:
       in_header: EcoFoGBeamer.tex
     keep_tex: no
     slide_level: 2
-  ioslides_presentation:
-    logo: images/EcoFoG2020.png
-    widescreen: true
- ---
+---
 
 ```{r setup, include=FALSE}
 ### knitr and R options (packages, ...)
@@ -49,7 +49,7 @@ options(tibble.print_min = 5, tibble.width = 50)
 
 ## Espace de travail hors git
 
-Dossier personnel, appelé **\~** par RStudio :
+Dossier personnel, appelé `~` par RStudio :
 
 ```{r R_USER, echo=TRUE}
 Sys.getenv("R_USER")
@@ -121,7 +121,7 @@ La fenêtre *Environnement* liste les variables et fonctions.
 
 -   Sauvegarde automatique en fin de session.
 
-La fenêtre *History* liste l'historique des commandes:
+La fenêtre *History* liste l'historique des commandes :
 
 -   Sauvegarde, idem ;
 
