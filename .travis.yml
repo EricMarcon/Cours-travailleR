@@ -7,11 +7,6 @@ warnings_are_errors: false    # Versions de R pour la construction des packages
 
 cache:
   packages: true
-  directories: 
-    - $HOME/.npm
-    - Krigeage_cache
-    - Krigeage_files
-    - libs
 
 branches:
   only:
@@ -28,13 +23,14 @@ r_packages:
     - bookdown
 
 script:
-  - travis_wait 60 Rscript -e "rmarkdown::render('11-Preparation.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('12-git.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('21-Rediger.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('31-Langage.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', c('bookdown::html_document2', 'bookdown::pdf_book'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('11-Preparation.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('12-git.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('21-Rediger.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('31-Langage.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
   - travis_wait 60 Rscript -e "source('GithubPages.R')"
+  - echo "theme: jekyll-theme-slate">docs/_config.yml
 
 deploy:
   provider: pages
@@ -44,7 +40,3 @@ deploy:
   local_dir: docs
   on:
     branch: master
-
-notifications:
-  email:
-    on_success: always # default: change
