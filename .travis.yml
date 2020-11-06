@@ -30,6 +30,7 @@ script:
   - travis_wait 60 Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
   - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
   - travis_wait 60 Rscript -e "source('GithubPages.R')"
+  - mkdir docs
   - echo "theme: jekyll-theme-slate">docs/_config.yml
 
 deploy:
