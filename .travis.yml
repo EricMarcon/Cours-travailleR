@@ -15,20 +15,18 @@ branches:
 # Packages binaires à partir de RStudio
 before_install:
   - echo "options(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/xenial/latest'))" >> ~/.Rprofile.site
-  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (',
-       paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']),
-       ')'))" >> ~/.Rprofile.site
+  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (', paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']), ')'))" >> ~/.Rprofile.site
 
 r_packages:
     - bookdown
 
 script:
-  - travis_wait 60 Rscript -e "rmarkdown::render('11-Preparation.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('12-git.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('21-Rediger.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('31-Langage.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
-  - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', c('bookdown::ioslides_presentation2', 'bookdown::beamer_presentation2'))"
+  - travis_wait 60 Rscript -e "rmarkdown::render('11-Preparation.Rmd', 'all')"
+  - travis_wait 60 Rscript -e "rmarkdown::render('12-git.Rmd', 'all')"
+  - travis_wait 60 Rscript -e "rmarkdown::render('21-Rediger.Rmd', 'all')"
+  - travis_wait 60 Rscript -e "rmarkdown::render('31-Langage.Rmd', 'all')"
+  - travis_wait 60 Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', 'all')"
+  - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', 'all')"
   - travis_wait 60 Rscript -e "source('GithubPages.R')"
 #  - echo "theme: jekyll-theme-slate" > ./docs/_config.yml
 

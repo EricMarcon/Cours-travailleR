@@ -12,7 +12,6 @@ output:
       in_header: EcoFoGBeamer.tex
     keep_tex: no
     slide_level: 2
-  slidy_presentation: default
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=50))

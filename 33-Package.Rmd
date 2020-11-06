@@ -12,7 +12,6 @@ output:
     slide_level: 2
   ioslides_presentation:
     logo: images/EcoFoG2020.png
-  slidy_presentation: default
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=50))
