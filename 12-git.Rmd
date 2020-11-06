@@ -72,7 +72,7 @@ GitHub est une plateforme pour la collaboration basée sur Git.
 RStudio doit détecter Git
 
 ```{r, echo=FALSE, out.width='60%'}
-knitr::include_graphics("images/Roptions.png")
+knitr::include_graphics("images/r_options.png")
 ```
 
 Sinon, l'installer.
@@ -83,7 +83,7 @@ Sinon, l'installer.
 Ouvrir un compte sur GitHub
 
 ```{r, echo=FALSE, out.width='60%'}
-knitr::include_graphics("images/GitHub.png")
+knitr::include_graphics("images/GitHub_accueil.png")
 ```
 
 
@@ -181,7 +181,7 @@ En cas de conflit, trancher.
 Icône en forme d'horloge dans la fenêtre Git
 
 ```{r, echo=FALSE, out.width='80%'}
-knitr::include_graphics("images/GitHistory.png")
+knitr::include_graphics("images/git_history.png")
 ```
 
 

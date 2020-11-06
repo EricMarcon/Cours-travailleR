@@ -83,7 +83,7 @@ Pas d'espace ni caractère spécial dans les noms de dossier.
 Stockage des packages dans la librairie système si R peut y écrire.
 
 ```{r R-library, echo=FALSE, out.width='40%'}
-knitr::include_graphics("images/R-library.png")
+knitr::include_graphics("images/r_library.png")
 ```
 
 Utile si `~` est sauvegardé.

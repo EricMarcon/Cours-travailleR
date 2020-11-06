@@ -330,7 +330,7 @@ Principes :
 
 ## Hiérarchie des environnements
 
-```{r R-library, echo=FALSE, out.width='95%'}
+```{r map-of-the-world, echo=FALSE, out.width='95%'}
 knitr::include_graphics("images/map-of-the-world.png")
 ```
 

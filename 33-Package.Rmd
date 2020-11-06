@@ -480,7 +480,7 @@ Imports: stats
 
 ## Règles de dépendance
 
-```{r R-library, echo=FALSE, out.width='80%'}
+```{r imports-depends-plyr, echo=FALSE, out.width='80%'}
 knitr::include_graphics("images/imports-depends-plyr.png")
 ```
 
