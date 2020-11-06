@@ -8,8 +8,8 @@
 # RStudio files
 .Rproj.user/
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
+# Package file
+.Rbuildignore
 
 # knitr and R markdown default cache directories
 /cache/
@@ -47,3 +47,6 @@
 # Projet
 Fig1.emf
 Fig1.eps
+
+# Travis
+docs/
