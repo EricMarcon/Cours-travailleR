@@ -29,7 +29,8 @@ script:
   - travis_wait 60 Rscript -e "rmarkdown::render('33-Package.Rmd', 'all')"
   - travis_wait 60 Rscript -e "source('GithubPages.R')"
 
-before_deploy: echo "theme: jekyll-theme-slate" > docs/_config.yml
+before_deploy: 
+  - echo "theme: jekyll-theme-slate" >> ~/docs/_config.yml
 
 deploy:
   provider: pages
