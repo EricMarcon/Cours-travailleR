@@ -32,8 +32,7 @@ script:
 before_deploy:
   - ls 
   - ls docs
-  - ls ~/docs
-  - echo "Bonjour" >> ~/docs/_config.yml
+  - echo "Bonjour" > docs/_config.yml
 
 deploy:
   provider: pages
