@@ -30,9 +30,7 @@ script:
   - Rscript -e "source('GithubPages.R')"
 
 before_deploy:
-  - ls 
-  - ls docs
-  - echo "Bonjour" > docs/_config.yml
+  - echo "theme: jekyll-theme-slate" > docs/_config.yml
 
 deploy:
   provider: pages
