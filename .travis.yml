@@ -22,16 +22,16 @@ r_packages:
 
 script:
   - Rscript -e "rmarkdown::render('11-Preparation.Rmd', 'all')"
-  - Rscript -e "rmarkdown::render('12-git.Rmd', 'all')"
-  - Rscript -e "rmarkdown::render('21-Rediger.Rmd', 'all')"
-  - Rscript -e "rmarkdown::render('31-Langage.Rmd', 'all')"
-  - Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', 'all')"
-  - Rscript -e "rmarkdown::render('33-Package.Rmd', 'all')"
-  - Rscript -e "source('GithubPages.R')"
+#  - Rscript -e "rmarkdown::render('12-git.Rmd', 'all')"
+#  - Rscript -e "rmarkdown::render('21-Rediger.Rmd', 'all')"
+#  - Rscript -e "rmarkdown::render('31-Langage.Rmd', 'all')"
+#  - Rscript -e "rmarkdown::render('32-Tidyverse.Rmd', 'all')"
+#  - Rscript -e "rmarkdown::render('33-Package.Rmd', 'all')"
+#  - Rscript -e "source('GithubPages.R')"
 
 before_deploy:
   - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (', paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']), ')'))" >> ~/.Rprofile.site
-  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (', paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']), ')'))" >> ~/docs/_config.yml
+  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (', paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']), ')'))" > ~/docs/_config.yml
   - echo "Bonjour" >> ~/docs/_config.yml
 
 deploy:
