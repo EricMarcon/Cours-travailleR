@@ -1,6 +1,6 @@
 language: r
 os: linux
-dist: xenial
+dist: focal
 pandoc_version: 2.7.3
 
 warnings_are_errors: false    # Versions de R pour la construction des packages
@@ -36,7 +36,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  keep_history: true
+  keep_history: false
   local_dir: docs
   on:
     branch: master
