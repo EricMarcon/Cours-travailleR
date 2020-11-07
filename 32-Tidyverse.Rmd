@@ -313,6 +313,7 @@ Quel est le diamètre moyen des arbres par famille ?
 Paracou6 %>% group_by(Family) %>% summarise(Dmean=mean(CircCorr)/pi, NbTrees=length(idTree)) %>% arrange(desc(Dmean))
 ```
 
+
 # Visualisation
 
 ## _ggplot2_
