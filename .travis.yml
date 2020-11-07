@@ -30,8 +30,9 @@ script:
 #  - Rscript -e "source('GithubPages.R')"
 
 before_deploy:
-  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (', paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']), ')'))" >> ~/.Rprofile.site
-  - echo "options(HTTPUserAgent = paste0('R/', getRversion(), ' R (', paste(getRversion(), R.version['platform'], R.version['arch'], R.version['os']), ')'))" > ~/docs/_config.yml
+  - ls 
+  - ls docs
+  - ls ~/docs
   - echo "Bonjour" >> ~/docs/_config.yml
 
 deploy:
