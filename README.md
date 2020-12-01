@@ -61,20 +61,7 @@ Ecrire un package.
 
 # Image Docker
 
-Une image [Docker](https://www.docker.com/) est proposée pour exécuter R sans se soucier de son installation.
+Une [image Docker](https://github.com/EricMarcon/Docker-Cours-R/) est proposée pour exécuter R sans se soucier de son installation.
 Elle est construite sur l'image [rocker/verse](https://hub.docker.com/r/rocker/verse).
-Pour l'utiliser :
 
-- Installer Docker ;
-- Construire l'image (le téléchargement peut prendre du temps) :
-```
-docker build -t coursr https://github.com/EricMarcon/Cours-travailleR:docker
-````
-
-- Exécuter l'image. Le mot de passe est à choisir librement, pour se connecter à RStudio (le nom d'utilisateur est obligatoirement "rstudio")
-```
-docker run -e PASSWORD=<votre_mdp> -p 8787:8787  coursr
-````
-
-Le conteneur Docker n'a par défaut pas de lien avec le système de fichier de sa machine hôte.
-Pour échanger des fichiers, utiliser les commandes *Upload* et *Export* de RStudio.
+Pour l'utiliser, voir sa [documentation](https://github.com/EricMarcon/Docker-Cours-R).
