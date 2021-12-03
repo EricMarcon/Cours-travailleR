@@ -5,6 +5,7 @@ date: "`r format(Sys.time(), '%d %B %Y')`"
 preamble: >
   \usepackage{textcomp}
   \DeclareUnicodeCharacter{B0}{\textdegree}
+urlcolor: blue
 output:
   ioslides_presentation:
     logo: images/EcoFoG2020.png
@@ -45,6 +46,7 @@ knitr::opts_chunk$set(dev.args=list(bg="transparent"))
 options(tibble.print_min = 5, tibble.width = 50)
 ```
 
+
 # R
 
 ## Espace de travail hors git
@@ -56,7 +58,6 @@ Sys.getenv("R_USER")
 ```
 
 -   Mes Documents sous Windows ;
-
 -   Home sous Mac ou Linux.
 
 Travailler dans un sous-dossier, par exemple : *Formation*.
@@ -64,6 +65,7 @@ Travailler dans un sous-dossier, par exemple : *Formation*.
 Pas d'espace ni caractère spécial dans les noms de dossier.
 
 Dossier sauvegardé par le système, non optimal.
+
 
 ## Espace de travail sous git
 
@@ -73,9 +75,10 @@ Sous Windows:
 
     md %LOCALAPPDATA%\ProjetsR
 
-Travailler un sous-dossiers, par exemple : *Formation*.
+Travailler dans des sous-dossiers, par exemple : *Formation*.
 
 Pas d'espace ni caractère spécial dans les noms de dossier.
+
 
 ## Librairies système et utilisateur
 
@@ -102,6 +105,7 @@ Version \> 1 indispensable.
 
 Dans le cloud : <https://rstudio.cloud/projects>
 
+
 ## Projets
 
 Organiser le travail en projets :
@@ -114,19 +118,19 @@ Création par le menu *New Project*.
 
 Pas de caractères spéciaux, pas d'espace dans le nom.
 
+
 ## Environnement de travail
 
 La fenêtre *Environnement* liste les variables et fonctions.
 
 -   Sauvegarde dans un fichier RData / Ouverture d'un RData ;
-
 -   Sauvegarde automatique en fin de session.
 
 La fenêtre *History* liste l'historique des commandes :
 
 -   Sauvegarde, idem ;
-
 -   Envoi à la console ou au fichier source.
+
 
 ## Packages
 
@@ -148,18 +152,6 @@ devtools::install_github("EcoFoG/EcoFoG")
 
 Mis en pratique à la fin de la séquence.
 
-## Package EcoFoG
-
-[Sur GitHub](https://ecofog.github.io/EcoFoG/Introduction.html).
-
-Contient des modèles d'article, de présentation, d'ouvrage.
-
-Contient du code à usage interne :
-
--   Accès à la base Guyafor ;
-
--   Outil pour la création de cartes de Paracou.
-
 
 # Logiciels
 
@@ -169,31 +161,33 @@ R utilise des packages et appelle des programmes externes pour la création de d
 
 Liste avec liens maintenue dans la [vignette du package EcoFoG](https://ecofog.github.io/EcoFoG/Introduction.html#environnement-logiciel).
 
+
 ## Packages R
 
 -   devtools : utilitaires pour le développement ;
-
 -   knitr, rmarkdown, bookdown: rédaction avec RMarkdown.
 
 Utiliser *Packages.R* pour une réinstallation rapide.
+
 
 ## LaTeX
 
 Production de fichiers PDF :
 
 -   Présentations Beamer ;
-
 -   Articles et ouvrages PDF.
 
 Installer *MikTex* sous Windows, *MacTex* sous Mac, *TexLive* sous Linux.
 
 Compléter par *TeXstudio* pour débugger les compilations difficiles et *Jabref* pour gérer les fichiers bib.
 
+
 ## Bibliographie
 
 Utiliser un gestionnaire bibliographique capable de produire un fichier *bib* : *Mendeley* ou *Zotero.*
 
 *Jabref* permet de gérer totalement sa bibliographie au format *BibTeX*.
+
 
 ## Développement
 
@@ -202,9 +196,7 @@ Sous Windows, compléter R par Rtools : outils pour R.
 Installations souhaitables :
 
 -   ImageMagik : traitement des images ;
-
 -   qpdf : vérification de la compression des fichiers PDF ;
-
 -   Ghostscript : traitement des fichiers PDF.
 
 
@@ -227,6 +219,7 @@ Installer R et RStudio.
 
 Installer git. Ouvrir un compte sur GitHub.
 
+
 ## Adhésion à la classe GitHub
 
 Valider l'invitation envoyée pour la classe Cours-R.
@@ -234,6 +227,7 @@ Valider l'invitation envoyée pour la classe Cours-R.
 Lier son nom d'invité et son compte GitHub.
 
 Accepter l'assignation Cours-R-Introduction.
+
 
 ## Cours-R-Introduction
 
