@@ -56,7 +56,7 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 ```{r Options, include=FALSE}
 ### Customized options for this document
 # Add necessary packages here
-Packages <- c("tidyverse", "entropart")
+Packages <- c("tidyverse")
 # Install them
 InstallPackages(Packages)
 
