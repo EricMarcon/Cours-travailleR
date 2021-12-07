@@ -140,7 +140,7 @@ Exemple :
 
 Principe : les données résultant d'un calcul sont passées à la fonction suivante.
 
-Enchainement :
+Enchaînement :
 ```{r}
 1:10 %>% sqrt %>% sum
 ```
@@ -161,11 +161,14 @@ Embranchement :
 ```{r, out.width='5%'}
 x %T>% plot %>% sum
 ```
+
 ## Autres opérateurs
 
 Exposition :
 ```{r}
 diamonds %$% mean(price)
+# Équivalent à 
+diamonds %>% pull(price) %>% mean
 ```
 
 Le tuyau de base est accessible sans charger `magrittr`
@@ -320,7 +323,7 @@ Filtrer par des conditions sur les différentes variables
 # Nombre de lignes
 Paracou6 %>% count %>% pull
 # Après filtrage
-Paracou6 %>% filter(SubPlot==1 & CodeAlive==TRUE) %>% count %>% pull
+Paracou6 %>% filter(SubPlot==1) %>% count %>% pull
 ```
 Remarquer : `pull()`qui extrait la valeur finale du tibble de taille 1x1 produit par `count()`.
 
