@@ -145,9 +145,8 @@ Intègre la majorité des outils utiles.
 
 Version \> 1 indispensable.
 
-[RStudio Server](https://www.ecofog.gf/RStudio1/) est strictement équivalent.
+[RStudio Server](https://rstudio.cloud/projects/) est strictement équivalent.
 
-Dans le cloud : <https://rstudio.cloud/projects>
 
 
 ## Projets

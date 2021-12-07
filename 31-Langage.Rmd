@@ -970,22 +970,13 @@ Objectif : calculer le nombre d'arbres par espèce, le nombre d'arbres par carr�
 Technique : utiliser les fonctions vectorielles, les fonctions de type `apply`, éventuellement des boucles.
 
 
-## Lecture des données
+## Lecture et organisation des données
 
-Installer le package EcoFoG à partir de GitHub
-
-```{r, eval=FALSE}
-devtools::install_github("EcoFoG/EcoFoG")
-```
-
-Extraire les données
+Lecture des arbres de la parcelle 6 de Paracou
 ```{r}
-library("EcoFoG")
-Paracou6 <- Paracou2df(WHERE="Plot='6' AND CensusYear=2016")
+# Lecture des arbres de la parcelle 6 de Paracou
+Paracou6 <- read.csv2("data/Paracou6.csv")
 ```
-
-
-## Organisation des données
 
 Création d'un tableau croisé :
 ```{r}
