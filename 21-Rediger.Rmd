@@ -144,15 +144,17 @@ knitr::include_graphics("images/Nouveau-rmd2.png")
 ```
 
 
-## Modèles EcoFoG
+## Modèles memoiR
+
+Article simple : HTML pour un partage rapide, PDF simple.
+
+Article stylé : PDF pour l'autoarchivage et HTML pour la lecture. Word possible.
 
 Présentation : Beamer et HTML (utiliser _ioslides_).
 
-Article : PDF pour l'autoarchivage et HTML pour la lecture. Word possible.
+Mémoire (Mémoire de master, Thèse, HDR, livre) : PDF et HTML.
 
-Ouvrage (Mémoire de master, Thèse, HDR, livre) : PDF et HTML.
-
-[Démonstration](https://ecofog.github.io/EcoFoG/)
+[Gallerie](https://ericmarcon.github.io/memoiR/)
 
 Documentation dans les modèles.
 
@@ -177,9 +179,7 @@ Ce n'est pas un package :
 
 ## Création du projet
 
-Utiliser l'assistant _Nouveau Fichier /R Markdown... /A partir d'un modèle / Article EcoFoG_.
-
-Un nouveau dossier est créé. Le transformer en projet R: _Nouveau projet /A partir d'un dossier existant_.
+Utiliser l'assistant _New Project /New Directory / Document Project using memoiR_.
 
 Tricoter pour vérifier le fonctionnement.
 
@@ -211,11 +211,11 @@ Les figures sont produites directement par le code :
 
 ## Bibliographie
 
-Utiliser sa bibliographie générale, produite par Mendeley :
+Utiliser sa bibliographie générale, produite par Zotero et Better Bibtex :
 
 - Pas de perte de temps pendant la rédaction ;
 
-- Produire une bibliographie autonome à la fin avec Jabref (_Tools /New Sublibrary based on AUX file_).
+- Exportation en temps réel de la bibliographie du projet.
 
 
 Ou utiliser directement une bibliographie spécifique, dans un fichier bib autonome.
@@ -226,17 +226,16 @@ Voir la [Documentation](http://rmarkdown.rstudio.com/authoring_bibliographies_an
 
 ## Séparer l'atelier et le magasin
 
-Modèles EcoFoG sauf _ouvrage_ : script _GitHubPages.R_
+Modèles sauf _memoir_ :
+
+- Tricoter aux formats PDF et HTML.
+- Exécuter `memoiR::build_githubpages()`.
 
 Les fichiers produits (PDF, HTML, libs) sont déplacés dans /_docs._
 
 Le fichier /README.md est dupliqué dans /_docs_.
 
-- Tricoter aux formats PDF et HTML.
-
-- Exécuter _GitHubPages.R_.
-
-Modèles EcoFoG _ouvrage_ : _Build Book_ tricote tout dans /_docs_.
+Modèle _memoir_ : _Build Book_ tricote tout dans /_docs_.
 
 
 ## Collaboration
@@ -270,20 +269,17 @@ Dans README.md, ajouter les liens vers les fichiers produits :
 
 ## Objectifs
 
-Sous-traiter à Travis-CI (service en ligne) la construction des livres.
+Sous-traiter à GitHub Actions (service en ligne) la construction des documents
 
 Permet une mise à jour en continu, à chaque push.
 
 ## Moyens
 
-Ouvrir un compte sur Travis
+Entrer les secrets du projet : jeton Github et adresse de messagerie.
 
-Activer le projet de livre
-
-Ajouter un script `.travis.yml`(cours, chap. 6)
+Créer le script : `memoiR::build_ghworkflow()`
 
 Pages GitHub sur la branche `gh-pages`
-
 
 
 # Figures pour la publication
