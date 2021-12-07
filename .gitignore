@@ -1,23 +1,17 @@
 # History files
 .Rhistory
 .Rapp.history
-
 # Session Data files
 .RData
-
+# Package file
+.Rbuildignore
 # RStudio files
 .Rproj.user/
 
-# Package file
-.Rbuildignore
-
 # knitr and R markdown default cache directories
-/cache/
-/figure/
 /*_files/
 /*_cache/
 /libs/
-
 
 # Latex files
 *.aux
@@ -32,21 +26,12 @@
 *.toc
 *-concordance.tex
 *(busy)
-*.tex
-!EcoFoGBeamer.tex
 *.nav
 *.snm
 *.vrb
 
-# Extras
-.#Extra
+# Template specific
+packages.bib
 
-# Private keys
-*_rsa
-
-# Projet
-Fig1.emf
-Fig1.eps
-
-# Travis
+# Uncomment if CI builds docs/
 docs/
