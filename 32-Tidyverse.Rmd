@@ -233,18 +233,10 @@ Si les données sont mal rangées ("pas tidy"), quelques manipulations de base.
 
 Données : inventaire d'une parcelle de Paracou, 4 carrés distincts.
 
-Installer le package EcoFoG à partir de GitHub
+Lire les données :
 
-```{r, eval=FALSE}
-devtools::install_github("EcoFoG/EcoFoG")
-```
-
-Extraire les données
 ```{r}
-library("EcoFoG")
-Paracou2df("Plot='6' AND CensusYear=2016") %>% 
-  as_tibble ->
-  Paracou6
+Paracou6 <- read_csv2("data/Paracou6.csv")
 ```
 
 - Afficher Paracou6
@@ -281,7 +273,7 @@ knitr::include_graphics("images/tidy-17.png")
 ```
 
 
-## Rassembler des colonnes (_gather_)
+## Rassembler des colonnes (*pivot_longer*)
 
 Opération inverse de la création d'un tableau croisé
 
@@ -290,7 +282,7 @@ knitr::include_graphics("images/tidy-9.png")
 ```
 
 
-## Séparer des colonnes (_spread_)
+## Séparer des colonnes (*pivot_wider*)
 
 Crée une colonne par modalité d'une variable
 
