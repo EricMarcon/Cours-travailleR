@@ -7,7 +7,7 @@ urlcolor: blue
 url: https://EricMarcon.github.io/travailleR/
 output:
   bookdown::ioslides_presentation2:
-    logo: images/EcoFoG2021.png
+    logo: images/logo.png
     widescreen: yes
   bookdown::beamer_presentation2:
     latex_engine: xelatex
@@ -526,6 +526,8 @@ Un package qui exporte une méthode S3 dépend forcément du package contenant l
 
 ## Type de données
 
+Type de données = "mode".
+
 Réel
 ```{r}
 typeof(1.1)
@@ -900,15 +902,24 @@ sum(x1)
 ```{r}
 x1 <- runif(1000)
 identical(sqrt(x1), sapply(x1, FUN=sqrt))
+```
+
+
+
+## Fonctions non vectorielles
+
+Fonctions similaires :
+
+```{r}
 library("microbenchmark")
 mb <- microbenchmark(sqrt(x1), sapply(x1, FUN=sqrt), lapply(x1, sqrt), vapply(x1, sqrt, FUN.VALUE = 0))
 summary(mb)[, c("expr", "median")]
 ```
+
 Infiniment plus lent qu'une fonction vectorielle.
 
-- `lapply()` renvoie une liste (économise le temps de `simplify2array()`)
-
-- `vapply()` économise le temps de détermination du type du vecteur
+- `lapply()` renvoie une liste (économise le temps de `simplify2array()`) ;
+- `vapply()` économise le temps de détermination du type du vecteur.
 
 
 ## Boucles
@@ -929,7 +940,7 @@ summary(mb)[, c("expr", "median")]
 
 ## Boucles
 
-Les boucles longues permettent un suivi
+Les boucles longues permettent un suivi :
 
 ```{r}
 Boucle <- function(x) {
@@ -957,8 +968,6 @@ est équivalent à `runif(3)`.
 
 `vectorize()` rend vectorielle une fonction qui ne l'est pas par des boucles. 
 Ecrire plutôt les boucles.
-
-
 
 
 ## Vectoriser un problème

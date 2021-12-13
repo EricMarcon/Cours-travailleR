@@ -7,7 +7,7 @@ urlcolor: blue
 url: https://EricMarcon.github.io/travailleR/
 output:
   bookdown::ioslides_presentation2:
-    logo: images/EcoFoG2021.png
+    logo: images/logo.png
     widescreen: yes
   bookdown::beamer_presentation2:
     latex_engine: xelatex
@@ -362,7 +362,7 @@ Paracou6Taille %>% arrange(desc(CircCorr))
 
 Quel est le diamètre moyen des arbres par famille ?
 ```{r}
-Paracou6 %>% group_by(Family) %>% summarise(Dmean=mean(CircCorr)/pi, NbTrees=length(idTree)) %>% arrange(desc(Dmean))
+Paracou6 %>% group_by(Family) %>% summarise(Dmean=mean(CircCorr)/pi, NbTrees=n()) %>% arrange(desc(Dmean))
 ```
 
 
@@ -497,23 +497,23 @@ Exemple : tracer la carte des wapas de la parcelle 6.
 ```{r}
 (Paracou6 %>% filter(Genus=="Eperua") %>%
   ggplot() + geom_point(aes(x=Xfield, y=Yfield, size=CircCorr, color=Species)) + coord_fixed() -> P6Map)
-  
 ```
 
 ## Facettes
 
-Présente plusieurs aspects du même graphique
+Présente plusieurs aspects du même graphique.
+
+Remarquer : la possibilité d'affiner un graphique.
 ```{r}
 P6Map + facet_wrap(~ Species)
 ```
-Remarquer : la possibilité d'affiner un graphique
 
 
 ## Thèmes
 
-Les thèmes définissent l'aspect des graphiques (hors traitement des données)
+Les thèmes définissent l'aspect des graphiques (hors traitement des données).
 
-Dans ce document : pas de fond grisé dans les graphiques (`theme_bw`), police 12, modifié pour que le fond soit transparent:
+Dans ce document : pas de fond grisé dans les graphiques (`theme_bw`), police 12, modifié pour que le fond soit transparent.
 
 ```{r, eval=FALSE}
 theme_set(theme_bw(base_size=12))

@@ -7,7 +7,7 @@ urlcolor: blue
 url: https://EricMarcon.github.io/travailleR/
 output:
   bookdown::ioslides_presentation2:
-    logo: images/EcoFoG2021.png
+    logo: images/logo.png
     widescreen: yes
   bookdown::beamer_presentation2:
     latex_engine: xelatex
@@ -157,8 +157,6 @@ Mémoire (Mémoire de master, Thèse, HDR, livre) : PDF et HTML.
 [Gallerie](https://ericmarcon.github.io/memoiR/)
 
 Documentation dans les modèles.
-
-- Ouvrir les modèles.
 
 
 ## Méthode de travail

@@ -7,7 +7,7 @@ urlcolor: blue
 url: https://EricMarcon.github.io/travailleR/
 output:
   bookdown::ioslides_presentation2:
-    logo: images/EcoFoG2021.png
+    logo: images/logo.png
     widescreen: yes
   bookdown::beamer_presentation2:
     latex_engine: xelatex
@@ -105,9 +105,9 @@ git est un gestionaire de sources :
 
 GitHub est une plateforme pour la collaboration basée sur Git.
 
-- Possibilité de développer à plusieurs : fin des pièces jointes !
+- Possibilité de développer à plusieurs : la fin des pièces jointes !
 - Présentation des résultats : pages GitHub ;
-- Intégration continue: Travis.
+- Intégration continue: GitHub Actions.
 
 
 # Mise en place
@@ -132,6 +132,17 @@ knitr::include_graphics("images/GitHub_accueil.png")
 ```
 
 
+## Sécurité GitHub
+
+Créer un jeton GitHub:
+
+- Paramètres du compte utilisateur ;
+- Developer Settings > Personal Access Tokens ;
+- Générer un jeton, le décrire en tant que "git-RStudio" et lui donner l'autorisation "repo".
+
+Sauvegarder le jeton !
+
+
 ## Créer un projet
 
 A partir de rien :
@@ -139,9 +150,7 @@ A partir de rien :
 - Dans GitHub : 
 
     - _New Repository_
-  
     - Choisir le nom (pas de caractères spéciaux)
-  
     - Ajouter un _.gitgnore_ approprié.
 
 - Copier l'URL à partir de _Clone or Download_
@@ -174,10 +183,10 @@ Les fichiers modifiés sont dans la fenêtre Git de RStudio.
 
 Utiliser .gitignore pour masquer les fichiers non suivis.
 
-- Créer un fichier R avec une ligne de code et l'enregistrer.
-
 
 ## Opérations élémentaires : commit
+
+- Créer un fichier R avec une ligne de code et l'enregistrer.
 
 Après chaque séance de travail, livrer le résultat (_Commit_)
 

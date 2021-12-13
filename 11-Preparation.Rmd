@@ -7,7 +7,7 @@ urlcolor: blue
 url: https://EricMarcon.github.io/travailleR/
 output:
   bookdown::ioslides_presentation2:
-    logo: images/EcoFoG2021.png
+    logo: images/logo.png
     widescreen: yes
   bookdown::beamer_presentation2:
     latex_engine: xelatex
@@ -108,12 +108,12 @@ Travailler dans un sous-dossier, par exemple : *Formation*.
 
 Pas d'espace ni caractère spécial dans les noms de dossier.
 
-Dossier sauvegardé par le système, non optimal.
+S'assurer que le dossier est sauvegardé.
 
 
 ## Espace de travail sous git
 
-Créer un dossier ouvert en écriture mais non sauvegardé.
+Créer un dossier autorisé en écriture mais non sauvegardé.
 
 Sous Windows:
 
@@ -143,7 +143,7 @@ Incontournable.
 
 Intègre la majorité des outils utiles.
 
-Version \> 1 indispensable.
+Mettre à jour à chaque changement de version R.
 
 [RStudio Server](https://rstudio.cloud/projects/) est strictement équivalent.
 
@@ -206,13 +206,13 @@ Instructions pour les installations dans [Travailler avec R, chapitre 1](https:/
 
 ## Packages R
 
--   devtools : utilitaires pour le développement ;
--   knitr, rmarkdown, bookdown: rédaction avec RMarkdown.
+-   **devtools** : utilitaires pour le développement ;
+-   **knitr**, **rmarkdown**, **bookdown**: rédaction avec RMarkdown.
 
 Utiliser *Packages.R* pour une réinstallation rapide.
 
 
-## LaTeX
+## LaTeX complet
 
 Production de fichiers PDF :
 
@@ -224,9 +224,21 @@ Installer *MikTex* sous Windows, *MacTex* sous Mac, *TexLive* sous Linux.
 Compléter par *TeXstudio* pour débugger les compilations difficiles et *Jabref* pour gérer les fichiers bib.
 
 
+## LaTeX pour R
+
+Installer le package **tinytex**.
+
+Exécuter
+```{r, eval=FALSE}
+tinytex::install_tinytex()
+```
+
+Installe une distribution très compacte de LaTeX.
+
+
 ## Bibliographie
 
-Utiliser un gestionnaire bibliographique capable de produire un fichier *bib* : *Mendeley* ou *Zotero.*
+Utiliser un gestionnaire bibliographique capable de produire un fichier *bib* : *Mendeley* ou *Zotero*.
 
 *Jabref* permet de gérer totalement sa bibliographie au format *BibTeX*.
 
@@ -237,9 +249,10 @@ Sous Windows, compléter R par Rtools : outils pour R.
 
 Installations souhaitables :
 
--   ImageMagik : traitement des images ;
 -   qpdf : vérification de la compression des fichiers PDF ;
 -   Ghostscript : traitement des fichiers PDF.
+
+A compléter en temps utiles.
 
 
 ## Git

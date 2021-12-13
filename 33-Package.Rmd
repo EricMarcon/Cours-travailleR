@@ -6,9 +6,6 @@ github-repo: EricMarcon/travailleR
 urlcolor: blue
 url: https://EricMarcon.github.io/travailleR/
 output:
-  bookdown::ioslides_presentation2:
-    logo: images/EcoFoG2021.png
-    widescreen: yes
   bookdown::beamer_presentation2:
     latex_engine: xelatex
     includes:
@@ -20,6 +17,9 @@ output:
     toc: no
     fig_caption: no
     keep_tex: no
+  bookdown::ioslides_presentation2:
+    logo: images/logo.png
+    widescreen: yes
 ---
 
 ```{r DoNotModify, include=FALSE}
@@ -716,36 +716,113 @@ Exemple :
 
 ## Intégration continue
 
-_Travis-CI_ vérifier le package par un _Check_ à chaque livraison.
+_GitHub Actions_ vérifie le package par un _Check_ à chaque livraison.
 
-- Ouvrir un compte sur Travis
-
-- Ajouter le dépôt GitHub du package.
-
-_codecov.io_ mesure la proportion du code exécutée par Travis
+_codecov.io_ mesure la proportion du code exécutée par GitHub Actions :
 
 - Ouvrir un compte sur _codecov.io_
 
 - Ajouter le dépôt GitHub du package.
 
 
-## travis.yml
+## GitHub Actions
 
-Fichier de paramétrage:
+Fichier de paramétrage pas à pas.
 
-```
-language: R
-sudo: false
-cache: packages
-
-r_packages:
- - devtools
- - covr
-
-after_success:
-  - Rscript -e 'library(covr); codecov(type ="all")'
+Déclaration du flux de travail :
 
 ```
+on:
+  push:
+    branches:
+      - master
+
+name: R-CMD-check
+```
+
+Déclenchement et nom.
+
+## GitHub Actions
+
+Déclaration du flux de travail :
+
+```
+jobs:
+  R-CMD-check:
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - (...)
+```
+
+Liste des jobs (un seul suffit ici), OS, environnement.
+
+
+## GitHub Actions
+
+Étapes : installation.
+
+```
+   steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install pandoc
+        uses: r-lib/actions/setup-pandoc@v1
+```
+
+Les actions évitent d'écrire des scripts.
+
+
+## GitHub Actions
+
+Étape : installation des dépendances.
+
+```
+      - name: Install dependencies
+        run: |
+          options(pkgType = "binary")
+          options(install.packages.check.source = "no")
+          install.packages(c("remotes", "rcmdcheck", "covr", "pkgdown"))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+```
+
+Le script est du code R.
+
+
+## GitHub Actions
+
+Étapes : vérification du package.
+
+```
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "warning", check_dir = "check")
+        shell: Rscript {0}
+      - name: Test coverage
+        run: covr::codecov(type="all")
+        shell: Rscript {0}
+```
+
+Exécution des vérifications et du calcul de la couverture.
+
+
+## GitHub Actions
+
+Étapes : documentation.
+
+```
+      - name: Install package
+        run: R CMD INSTALL .
+      - name: Pkgdown
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+```
+
+Installation du package et déploiement du site pkgdown (traité plus loin).
+
 
 ## Badges
 
@@ -755,9 +832,8 @@ Dans `README.md` (package _EricMarcon/SpatDiv_):
 ![stability-wip](https://img.shields.io/badge/
   stability-work_in_progress-lightgrey.svg)
 
-![Travis-CI Build Status](https://travis-ci.org/EricMarcon/
- SpatDiv.svg?branch=master)]
- (https://travis-ci.org/EricMarcon/SpatDiv)
+![R-CMD-check]
+  (https://github.com/EricMarcon/entropart/workflows/R-CMD-check/badge.svg)
 
 ![codecov](https://codecov.io/github/EricMarcon/SpatDiv/
   branch/master/graphs/badge.svg)]
@@ -773,75 +849,66 @@ D'autres badges sur _shields.io_.
 
 Les vignettes sont la documentation d'un package.
 
-Nombreux formats possibles :
-
-- [entropart](https://EricMarcon.github.io/entropart/) : format packagedocs, totalement déporté.
-
-- [EcoFoG](https://ecofog.github.io/EcoFoG/Introduction.html) : format BioConductor, interdit sur CRAN.
-
-- Vignettes _knitr_ en PDF...
+Standard de fait : **pkgdown**.
 
 ```{r, eval=FALSE}
-# Liste des vignettes
-vignette(package="ggplot2")
-# Ouvrir une vignette
-vignette("ggplot2-specs", package="ggplot2")
+# Run once to configure package to use pkgdown
+usethis::use_pkgdown()
+# Run to build the website
+pkgdown::build_site()
 ```
 
 
-## packagedocs
+## Paramétrage de pkgdown
 
-Installer le package. 
+Créer un fichier `_pkgdown.yml`.
 
-Le déclarer dans `DESCRIPTION` :
-
-```
-Suggests: packagedocs
-```
-
-[Mode d'emploi](http://hafen.github.io/packagedocs/)
-
-La documentation doit être écrite dans `vignettes/docs.Rmd`
-
-Une vignette automatique contient l'aide des fonctions.
-
-
-## packagedocs
-
-Initialisation :
-
-```{r, eval=FALSE}
-packagedocs::init_vignettes()
-```
-
-Compléter les entêtes de `docs/vignettes/docs.Rmd` et `rd.Rmd` et corriger :
+Déclarer l'emplacement du site à créer :
 
 ```
-navpills: |
-  <li class="active"><a href='index.html'>Docs</a></li>
-  <li><a href='rd.html'>Package Ref</a></li>
-  <li><a href='https://github.com/Utilisateur/Depot'>Github<i class
-      ='fa fa-github'></i></a></li>
+url: https://GitHubID.github.io/Projet/
 ```
 
+[Mode d'emploi](https://pkgdown.r-lib.org/articles/pkgdown.html)
 
-## Construction des vignettes
+
+## Construction du site
 
 Exécuter :
 ```{r, eval=FALSE}
-packagedocs::build_vignettes(output_dir = "docs")
+pkgdown::build_site()
 ```
 
-pour créer les vignettes
+pour une construction locale dans `docs/`.
 
 
-## Vignettes en ligne
+## Vignette
 
-Pousser sur GitHub.
+Dans `vignettes`, un fichier au nom du package `.Rmd`.
 
-Activer les pages web sur `/docs`.
+Appelé par `vignette("package")`
 
-L'appel aux vignettes dans R renvoie sur le site.
+Ecrite en R Markdown.
+
+Doit contenir un lien vers le site pkgdown.
+
+
+## Vignette
+
+En-tête :
+
+```
+---
+title: "NomPackage"
+subtitle: "Description en une ligne"
+bibliography: fichier.bib
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to NomPackage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```
 
 
 # Code C++ et parallélisation
@@ -859,7 +926,7 @@ Le code est plus complexe.
 
 La synchronisation des tâches consomme des ressources.
 
-A utiliser seulement en cas de besoin.
+A utiliser seulement pour des tâches longues.
 
 
 ## Code C++
@@ -1031,15 +1098,11 @@ La vérification sur CRAN est plus exigente :
 
 ## Préparation 
 
-Vérification OK localement et sur Travis.
+Vérification OK localement et sur GitHub Actions
 
 Construire la source du package avec la dernière version de R. 
 
-Vérifier le package sur : 
-
-- [Win-Builder](The r-hub builder) : plateforme Windows ;
-
-- [The r-hub builder](https://builder.r-hub.io/) : nombreuses plateformes.
+Vérifier le package sur [The r-hub builder](https://builder.r-hub.io/) : nombreuses plateformes.
 
 
 ## Soumission 
