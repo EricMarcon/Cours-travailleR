@@ -24,7 +24,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/EcoFoG2021.png',
+                        favIcon: 'images/logo.png',
               },
 
       // Author information
@@ -3182,7 +3182,7 @@ slide:not(.current) .plotly.html-widget{
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/EcoFoG2021.png) no-repeat 0 50%;
+      background: url(images/logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -3207,7 +3207,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">07 décembre 2021</p>
+            <p style="margin-top: 6px; margin-left: -2px;">13 décembre 2021</p>
           </hgroup>
   </slide>
 
@@ -3831,35 +3831,96 @@ git push -u origin master</pre>
 
 </article></slide><slide class=""><hgroup><h2>Intégration continue</h2></hgroup><article  id="intégration-continue">
 
-<p><em>Travis-CI</em> vérifier le package par un <em>Check</em> à chaque livraison.</p>
+<p><em>GitHub Actions</em> vérifie le package par un <em>Check</em> à chaque livraison.</p>
 
-<ul>
-<li><p>Ouvrir un compte sur Travis</p></li>
-<li><p>Ajouter le dépôt GitHub du package.</p></li>
-</ul>
-
-<p><em>codecov.io</em> mesure la proportion du code exécutée par Travis</p>
+<p><em>codecov.io</em> mesure la proportion du code exécutée par GitHub Actions :</p>
 
 <ul>
 <li><p>Ouvrir un compte sur <em>codecov.io</em></p></li>
 <li><p>Ajouter le dépôt GitHub du package.</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>travis.yml</h2></hgroup><article  id="travis.yml">
+</article></slide><slide class=""><hgroup><h2>GitHub Actions</h2></hgroup><article  id="github-actions">
 
-<p>Fichier de paramétrage:</p>
+<p>Fichier de paramétrage pas à pas.</p>
 
-<pre >language: R
-sudo: false
-cache: packages
+<p>Déclaration du flux de travail :</p>
 
-r_packages:
- - devtools
- - covr
+<pre >on:
+  push:
+    branches:
+      - master
 
-after_success:
-  - Rscript -e &#39;library(covr); codecov(type =&quot;all&quot;)&#39;
-</pre>
+name: R-CMD-check</pre>
+
+<p>Déclenchement et nom.</p>
+
+</article></slide><slide class=""><hgroup><h2>GitHub Actions</h2></hgroup><article  id="github-actions-1">
+
+<p>Déclaration du flux de travail :</p>
+
+<pre >jobs:
+  R-CMD-check:
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - (...)</pre>
+
+<p>Liste des jobs (un seul suffit ici), OS, environnement.</p>
+
+</article></slide><slide class=""><hgroup><h2>GitHub Actions</h2></hgroup><article  id="github-actions-2">
+
+<p>Étapes : installation.</p>
+
+<pre >   steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install pandoc
+        uses: r-lib/actions/setup-pandoc@v1</pre>
+
+<p>Les actions évitent d’écrire des scripts.</p>
+
+</article></slide><slide class=""><hgroup><h2>GitHub Actions</h2></hgroup><article  id="github-actions-3">
+
+<p>Étape : installation des dépendances.</p>
+
+<pre >      - name: Install dependencies
+        run: |
+          options(pkgType = &quot;binary&quot;)
+          options(install.packages.check.source = &quot;no&quot;)
+          install.packages(c(&quot;remotes&quot;, &quot;rcmdcheck&quot;, &quot;covr&quot;, &quot;pkgdown&quot;))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}</pre>
+
+<p>Le script est du code R.</p>
+
+</article></slide><slide class=""><hgroup><h2>GitHub Actions</h2></hgroup><article  id="github-actions-4">
+
+<p>Étapes : vérification du package.</p>
+
+<pre >      - name: Check
+        run: rcmdcheck::rcmdcheck(args = &quot;--no-manual&quot;, error_on = &quot;warning&quot;, check_dir = &quot;check&quot;)
+        shell: Rscript {0}
+      - name: Test coverage
+        run: covr::codecov(type=&quot;all&quot;)
+        shell: Rscript {0}</pre>
+
+<p>Exécution des vérifications et du calcul de la couverture.</p>
+
+</article></slide><slide class=""><hgroup><h2>GitHub Actions</h2></hgroup><article  id="github-actions-5">
+
+<p>Étapes : documentation.</p>
+
+<pre >      - name: Install package
+        run: R CMD INSTALL .
+      - name: Pkgdown
+        run: |
+          git config --local user.email &quot;actions@github.com&quot;
+          git config --local user.name &quot;GitHub Actions&quot;
+          Rscript -e &#39;pkgdown::deploy_to_branch(new_process = FALSE)&#39;</pre>
+
+<p>Installation du package et déploiement du site pkgdown (traité plus loin).</p>
 
 </article></slide><slide class=""><hgroup><h2>Badges</h2></hgroup><article  id="badges">
 
@@ -3868,9 +3929,8 @@ after_success:
 <pre >![stability-wip](https://img.shields.io/badge/
   stability-work_in_progress-lightgrey.svg)
 
-![Travis-CI Build Status](https://travis-ci.org/EricMarcon/
- SpatDiv.svg?branch=master)]
- (https://travis-ci.org/EricMarcon/SpatDiv)
+![R-CMD-check]
+  (https://github.com/EricMarcon/entropart/workflows/R-CMD-check/badge.svg)
 
 ![codecov](https://codecov.io/github/EricMarcon/SpatDiv/
   branch/master/graphs/badge.svg)]
@@ -3884,74 +3944,63 @@ after_success:
 
 <p>Les vignettes sont la documentation d’un package.</p>
 
-<p>Nombreux formats possibles :</p>
-
-<ul>
-<li><p><a href='https://EricMarcon.github.io/entropart/' title=''>entropart</a> : format packagedocs, totalement déporté.</p></li>
-<li><p><a href='https://ecofog.github.io/EcoFoG/Introduction.html' title=''>EcoFoG</a> : format BioConductor, interdit sur CRAN.</p></li>
-<li><p>Vignettes <em>knitr</em> en PDF…</p></li>
-</ul>
+<p>Standard de fait : <strong>pkgdown</strong>.</p>
 
 <p></p>
 
-<pre class = 'prettyprint lang-r'># Liste des vignettes
-vignette(package = &quot;ggplot2&quot;)
-# Ouvrir une vignette
-vignette(&quot;ggplot2-specs&quot;, package = &quot;ggplot2&quot;)</pre>
+<pre class = 'prettyprint lang-r'># Run once to configure package to use pkgdown
+usethis::use_pkgdown()
+# Run to build the website
+pkgdown::build_site()</pre>
 
 <p></p>
 
-</article></slide><slide class=""><hgroup><h2>packagedocs</h2></hgroup><article  id="packagedocs">
+</article></slide><slide class=""><hgroup><h2>Paramétrage de pkgdown</h2></hgroup><article  id="paramétrage-de-pkgdown">
 
-<p>Installer le package.</p>
+<p>Créer un fichier <code>_pkgdown.yml</code>.</p>
 
-<p>Le déclarer dans <code>DESCRIPTION</code> :</p>
+<p>Déclarer l’emplacement du site à créer :</p>
 
-<pre >Suggests: packagedocs</pre>
+<pre >url: https://GitHubID.github.io/Projet/</pre>
 
-<p><a href='http://hafen.github.io/packagedocs/' title=''>Mode d’emploi</a></p>
+<p><a href='https://pkgdown.r-lib.org/articles/pkgdown.html' title=''>Mode d’emploi</a></p>
 
-<p>La documentation doit être écrite dans <code>vignettes/docs.Rmd</code></p>
-
-<p>Une vignette automatique contient l’aide des fonctions.</p>
-
-</article></slide><slide class=""><hgroup><h2>packagedocs</h2></hgroup><article  id="packagedocs-1">
-
-<p>Initialisation :</p>
-
-<p></p>
-
-<pre class = 'prettyprint lang-r'>packagedocs::init_vignettes()</pre>
-
-<p></p>
-
-<p>Compléter les entêtes de <code>docs/vignettes/docs.Rmd</code> et <code>rd.Rmd</code> et corriger :</p>
-
-<pre >navpills: |
-  &lt;li class=&quot;active&quot;&gt;&lt;a href=&#39;index.html&#39;&gt;Docs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#39;rd.html&#39;&gt;Package Ref&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&#39;https://github.com/Utilisateur/Depot&#39;&gt;Github&lt;i class
-      =&#39;fa fa-github&#39;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;</pre>
-
-</article></slide><slide class=""><hgroup><h2>Construction des vignettes</h2></hgroup><article  id="construction-des-vignettes">
+</article></slide><slide class=""><hgroup><h2>Construction du site</h2></hgroup><article  id="construction-du-site">
 
 <p>Exécuter :</p>
 
 <p></p>
 
-<pre class = 'prettyprint lang-r'>packagedocs::build_vignettes(output_dir = &quot;docs&quot;)</pre>
+<pre class = 'prettyprint lang-r'>pkgdown::build_site()</pre>
 
 <p></p>
 
-<p>pour créer les vignettes</p>
+<p>pour une construction locale dans <code>docs/</code>.</p>
 
-</article></slide><slide class=""><hgroup><h2>Vignettes en ligne</h2></hgroup><article  id="vignettes-en-ligne">
+</article></slide><slide class=""><hgroup><h2>Vignette</h2></hgroup><article  id="vignette-1">
 
-<p>Pousser sur GitHub.</p>
+<p>Dans <code>vignettes</code>, un fichier au nom du package <code>.Rmd</code>.</p>
 
-<p>Activer les pages web sur <code>/docs</code>.</p>
+<p>Appelé par <code>vignette(&quot;package&quot;)</code></p>
 
-<p>L’appel aux vignettes dans R renvoie sur le site.</p>
+<p>Ecrite en R Markdown.</p>
+
+<p>Doit contenir un lien vers le site pkgdown.</p>
+
+</article></slide><slide class=""><hgroup><h2>Vignette</h2></hgroup><article  id="vignette-2">
+
+<p>En-tête :</p>
+
+<pre >---
+title: &quot;NomPackage&quot;
+subtitle: &quot;Description en une ligne&quot;
+bibliography: fichier.bib
+output: rmarkdown::html_vignette
+vignette: &gt;
+  %\VignetteIndexEntry{Introduction to NomPackage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---</pre>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Code C++ et parallélisation</h2></hgroup><article  id="code-c-et-parallélisation">
 
@@ -3967,7 +4016,7 @@ vignette(&quot;ggplot2-specs&quot;, package = &quot;ggplot2&quot;)</pre>
 
 <p>La synchronisation des tâches consomme des ressources.</p>
 
-<p>A utiliser seulement en cas de besoin.</p>
+<p>A utiliser seulement pour des tâches longues.</p>
 
 </article></slide><slide class=""><hgroup><h2>Code C++</h2></hgroup><article  id="code-c">
 
@@ -4142,16 +4191,11 @@ testthat::test_that(&quot;Default and integer methods give same result&quot;,
 
 </article></slide><slide class=""><hgroup><h2>Préparation</h2></hgroup><article  id="préparation">
 
-<p>Vérification OK localement et sur Travis.</p>
+<p>Vérification OK localement et sur GitHub Actions</p>
 
 <p>Construire la source du package avec la dernière version de R.</p>
 
-<p>Vérifier le package sur :</p>
-
-<ul>
-<li><p><a href='The%20r-hub%20builder' title=''>Win-Builder</a> : plateforme Windows ;</p></li>
-<li><p><a href='https://builder.r-hub.io/' title=''>The r-hub builder</a> : nombreuses plateformes.</p></li>
-</ul>
+<p>Vérifier le package sur <a href='https://builder.r-hub.io/' title=''>The r-hub builder</a> : nombreuses plateformes.</p>
 
 </article></slide><slide class=""><hgroup><h2>Soumission</h2></hgroup><article  id="soumission">
 

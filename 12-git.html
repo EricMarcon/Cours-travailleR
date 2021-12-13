@@ -24,7 +24,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/EcoFoG2021.png',
+                        favIcon: 'images/logo.png',
               },
 
       // Author information
@@ -3119,7 +3119,7 @@ slide:not(.current) .plotly.html-widget{
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/EcoFoG2021.png) no-repeat 0 50%;
+      background: url(images/logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -3144,7 +3144,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">07 décembre 2021</p>
+            <p style="margin-top: 6px; margin-left: -2px;">13 décembre 2021</p>
           </hgroup>
   </slide>
 
@@ -3165,9 +3165,9 @@ slide:not(.current) .plotly.html-widget{
 <p>GitHub est une plateforme pour la collaboration basée sur Git.</p>
 
 <ul>
-<li>Possibilité de développer à plusieurs : fin des pièces jointes !</li>
+<li>Possibilité de développer à plusieurs : la fin des pièces jointes !</li>
 <li>Présentation des résultats : pages GitHub ;</li>
-<li>Intégration continue: Travis.</li>
+<li>Intégration continue: GitHub Actions.</li>
 </ul>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Mise en place</h2></hgroup><article  id="mise-en-place">
@@ -3194,6 +3194,18 @@ slide:not(.current) .plotly.html-widget{
 
 <p></p>
 
+</article></slide><slide class=""><hgroup><h2>Sécurité GitHub</h2></hgroup><article  id="sécurité-github">
+
+<p>Créer un jeton GitHub:</p>
+
+<ul>
+<li>Paramètres du compte utilisateur ;</li>
+<li>Developer Settings &gt; Personal Access Tokens ;</li>
+<li>Générer un jeton, le décrire en tant que &ldquo;git-RStudio&rdquo; et lui donner l’autorisation &ldquo;repo&rdquo;.</li>
+</ul>
+
+<p>Sauvegarder le jeton !</p>
+
 </article></slide><slide class=""><hgroup><h2>Créer un projet</h2></hgroup><article  id="créer-un-projet">
 
 <p>A partir de rien :</p>
@@ -3202,9 +3214,9 @@ slide:not(.current) .plotly.html-widget{
 <li><p>Dans GitHub :</p>
 
 <ul>
-<li><p><em>New Repository</em></p></li>
-<li><p>Choisir le nom (pas de caractères spéciaux)</p></li>
-<li><p>Ajouter un <em>.gitgnore</em> approprié.</p></li>
+<li><em>New Repository</em></li>
+<li>Choisir le nom (pas de caractères spéciaux)</li>
+<li>Ajouter un <em>.gitgnore</em> approprié.</li>
 </ul></li>
 <li><p>Copier l’URL à partir de <em>Clone or Download</em></p></li>
 <li><p>Dans RStudio : nouveau projet à partir de Git, coller l’URL.</p></li>
@@ -3234,11 +3246,11 @@ git push -u origin master</pre>
 
 <p>Utiliser .gitignore pour masquer les fichiers non suivis.</p>
 
+</article></slide><slide class=""><hgroup><h2>Opérations élémentaires : commit</h2></hgroup><article  id="opérations-élémentaires-commit">
+
 <ul>
 <li>Créer un fichier R avec une ligne de code et l’enregistrer.</li>
 </ul>
-
-</article></slide><slide class=""><hgroup><h2>Opérations élémentaires : commit</h2></hgroup><article  id="opérations-élémentaires-commit">
 
 <p>Après chaque séance de travail, livrer le résultat (<em>Commit</em>)</p>
 

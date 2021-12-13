@@ -24,7 +24,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/EcoFoG2021.png',
+                        favIcon: 'images/logo.png',
               },
 
       // Author information
@@ -3182,7 +3182,7 @@ slide:not(.current) .plotly.html-widget{
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/EcoFoG2021.png) no-repeat 0 50%;
+      background: url(images/logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -3207,7 +3207,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">07 décembre 2021</p>
+            <p style="margin-top: 6px; margin-left: -2px;">13 décembre 2021</p>
           </hgroup>
   </slide>
 
@@ -3286,7 +3286,7 @@ pryr::otype(print)</pre>
 
 <pre >## function (x, ...) 
 ## UseMethod(&quot;print&quot;)
-## &lt;bytecode: 0x7ff87421b9b0&gt;
+## &lt;bytecode: 0x7f90bf517bb0&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 <p></p>
@@ -3639,16 +3639,16 @@ y &lt;- 2</pre>
 
 <pre class = 'prettyprint lang-r'>environment()</pre>
 
-<pre >## &lt;environment: 0x7ff87b0628d0&gt;</pre>
+<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>f &lt;- function() environment()
 f()</pre>
 
-<pre >## &lt;environment: 0x7ff876e88ac8&gt;</pre>
+<pre >## &lt;environment: 0x7f90c6a5b858&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>parent.env(f())</pre>
 
-<pre >## &lt;environment: 0x7ff87b0628d0&gt;</pre>
+<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
 
 <p></p>
 
@@ -3798,6 +3798,8 @@ isNamespaceLoaded(&quot;pryr&quot;)</pre>
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Eléments du langage</h2></hgroup><article  id="eléments-du-langage">
 
 </article></slide><slide class=""><hgroup><h2>Type de données</h2></hgroup><article  id="type-de-données">
+
+<p>Type de données = &ldquo;mode&rdquo;.</p>
 
 <p>Réel</p>
 
@@ -4132,7 +4134,7 @@ array
 
 <pre >## function (..., deparse.level = 1) 
 ## .Internal(cbind(deparse.level, ...))
-## &lt;bytecode: 0x7ff8726fb680&gt;
+## &lt;bytecode: 0x7f90bde7a280&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 
@@ -4240,7 +4242,7 @@ array
 ##     }
 ##     else ans
 ## }
-## &lt;bytecode: 0x7ff871781b50&gt;
+## &lt;bytecode: 0x7f90bf599950&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 
@@ -4298,12 +4300,12 @@ array
 
 <pre class = 'prettyprint lang-r'>environment()</pre>
 
-<pre >## &lt;environment: 0x7ff87b0628d0&gt;</pre>
+<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>f &lt;- function() environment()
 f()</pre>
 
-<pre >## &lt;environment: 0x7ff87517cc00&gt;</pre>
+<pre >## &lt;environment: 0x7f90c044fad0&gt;</pre>
 
 
 
@@ -4313,7 +4315,7 @@ f()</pre>
 
 <pre class = 'prettyprint lang-r'>parent.env(f())</pre>
 
-<pre >## &lt;environment: 0x7ff87b0628d0&gt;</pre>
+<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
 
 
 
@@ -4543,7 +4545,7 @@ sqrt(x1)</pre>
 ##         return(Log)
 ##     }
 ## }
-## &lt;bytecode: 0x7ff8711ed4e0&gt;
+## &lt;bytecode: 0x7f90c41069e8&gt;
 ## &lt;environment: namespace:entropart&gt;</pre>
 
 
@@ -4571,24 +4573,32 @@ identical(sqrt(x1), sapply(x1, FUN = sqrt))</pre>
 
 <pre >## [1] TRUE</pre>
 
+
+
+</article></slide><slide class=""><hgroup><h2>Fonctions non vectorielles</h2></hgroup><article  id="fonctions-non-vectorielles-1">
+
+<p>Fonctions similaires :</p>
+
+
+
 <pre class = 'prettyprint lang-r'>library(&quot;microbenchmark&quot;)
 mb &lt;- microbenchmark(sqrt(x1), sapply(x1, FUN = sqrt),
     lapply(x1, sqrt), vapply(x1, sqrt, FUN.VALUE = 0))
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                              expr   median
-## 1                        sqrt(x1)   5.2840
-## 2          sapply(x1, FUN = sqrt) 359.0440
-## 3                lapply(x1, sqrt) 305.4885
-## 4 vapply(x1, sqrt, FUN.VALUE = 0) 309.5290</pre>
+## 1                        sqrt(x1)   5.4350
+## 2          sapply(x1, FUN = sqrt) 390.8225
+## 3                lapply(x1, sqrt) 324.6225
+## 4 vapply(x1, sqrt, FUN.VALUE = 0) 325.5735</pre>
 
 
 
 <p>Infiniment plus lent qu’une fonction vectorielle.</p>
 
 <ul>
-<li><p><code>lapply()</code> renvoie une liste (économise le temps de <code>simplify2array()</code>)</p></li>
-<li><p><code>vapply()</code> économise le temps de détermination du type du vecteur</p></li>
+<li><code>lapply()</code> renvoie une liste (économise le temps de <code>simplify2array()</code>) ;</li>
+<li><code>vapply()</code> économise le temps de détermination du type du vecteur.</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Boucles</h2></hgroup><article  id="boucles">
@@ -4606,15 +4616,15 @@ Vapply &lt;- function(x) vapply(x, FUN = sqrt, 0)
 mb &lt;- microbenchmark(Vapply(x1), Boucle(x1))
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
-<pre >##         expr  median
-## 1 Vapply(x1) 351.111
-## 2 Boucle(x1) 169.832</pre>
+<pre >##         expr   median
+## 1 Vapply(x1) 330.4825
+## 2 Boucle(x1) 154.9525</pre>
 
 
 
 </article></slide><slide class=""><hgroup><h2>Boucles</h2></hgroup><article  id="boucles-1">
 
-<p>Les boucles longues permettent un suivi</p>
+<p>Les boucles longues permettent un suivi :</p>
 
 
 
@@ -4696,8 +4706,8 @@ Paracou6X[1:2, ]</pre>
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                       expr   median
-## 1 apply(Paracou6X, 2, sum) 144.9290
-## 2       colSums(Paracou6X)  80.8495</pre>
+## 1 apply(Paracou6X, 2, sum) 144.8555
+## 2       colSums(Paracou6X)  81.2695</pre>
 
 <pre class = 'prettyprint lang-r'>colSums(Paracou6X)</pre>
 
@@ -4716,9 +4726,9 @@ summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
     0), colSums(Paracou6X &gt; 0))
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
-<pre >##                                     expr   median
-## 1 apply(Paracou6X, 2, function(x) x &gt; 0) 280.4430
-## 2                 colSums(Paracou6X &gt; 0) 120.7055</pre>
+<pre >##                                     expr  median
+## 1 apply(Paracou6X, 2, function(x) x &gt; 0) 215.958
+## 2                 colSums(Paracou6X &gt; 0) 102.333</pre>
 
 <pre class = 'prettyprint lang-r'>colSums(Paracou6X &gt; 0)</pre>
 
@@ -4758,8 +4768,8 @@ mb &lt;- microbenchmark(Boucle(Paracou6X), Apply(Paracou6X))
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                expr   median
-## 1 Boucle(Paracou6X) 6.338473
-## 2  Apply(Paracou6X) 6.759726</pre>
+## 1 Boucle(Paracou6X) 5.906906
+## 2  Apply(Paracou6X) 6.006956</pre>
 
 
 

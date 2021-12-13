@@ -24,7 +24,7 @@
         usePrettify: true,
         enableSlideAreas: true,
         enableTouch: true,
-                        favIcon: 'images/EcoFoG2021.png',
+                        favIcon: 'images/logo.png',
               },
 
       // Author information
@@ -3182,7 +3182,7 @@ slide:not(.current) .plotly.html-widget{
       position: absolute;
       bottom: 20px;
       left: 60px;
-      background: url(images/EcoFoG2021.png) no-repeat 0 50%;
+      background: url(images/logo.png) no-repeat 0 50%;
       -webkit-background-size: 30px 30px;
       -moz-background-size: 30px 30px;
       -o-background-size: 30px 30px;
@@ -3207,7 +3207,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">07 décembre 2021</p>
+            <p style="margin-top: 6px; margin-left: -2px;">13 décembre 2021</p>
           </hgroup>
   </slide>
 
@@ -3234,11 +3234,11 @@ slide:not(.current) .plotly.html-widget{
 
 <p>Pas d’espace ni caractère spécial dans les noms de dossier.</p>
 
-<p>Dossier sauvegardé par le système, non optimal.</p>
+<p>S’assurer que le dossier est sauvegardé.</p>
 
 </article></slide><slide class=""><hgroup><h2>Espace de travail sous git</h2></hgroup><article  id="espace-de-travail-sous-git">
 
-<p>Créer un dossier ouvert en écriture mais non sauvegardé.</p>
+<p>Créer un dossier autorisé en écriture mais non sauvegardé.</p>
 
 <p>Sous Windows:</p>
 
@@ -3268,7 +3268,7 @@ slide:not(.current) .plotly.html-widget{
 
 <p>Intègre la majorité des outils utiles.</p>
 
-<p>Version &gt; 1 indispensable.</p>
+<p>Mettre à jour à chaque changement de version R.</p>
 
 <p><a href='https://rstudio.cloud/projects/' title=''>RStudio Server</a> est strictement équivalent.</p>
 
@@ -3336,13 +3336,13 @@ devtools::install_github(&quot;EcoFoG/EcoFoG&quot;)</pre>
 </article></slide><slide class=""><hgroup><h2>Packages R</h2></hgroup><article  id="packages-r">
 
 <ul>
-<li>devtools : utilitaires pour le développement ;</li>
-<li>knitr, rmarkdown, bookdown: rédaction avec RMarkdown.</li>
+<li><strong>devtools</strong> : utilitaires pour le développement ;</li>
+<li><strong>knitr</strong>, <strong>rmarkdown</strong>, <strong>bookdown</strong>: rédaction avec RMarkdown.</li>
 </ul>
 
 <p>Utiliser <em>Packages.R</em> pour une réinstallation rapide.</p>
 
-</article></slide><slide class=""><hgroup><h2>LaTeX</h2></hgroup><article  id="latex">
+</article></slide><slide class=""><hgroup><h2>LaTeX complet</h2></hgroup><article  id="latex-complet">
 
 <p>Production de fichiers PDF :</p>
 
@@ -3355,9 +3355,23 @@ devtools::install_github(&quot;EcoFoG/EcoFoG&quot;)</pre>
 
 <p>Compléter par <em>TeXstudio</em> pour débugger les compilations difficiles et <em>Jabref</em> pour gérer les fichiers bib.</p>
 
+</article></slide><slide class=""><hgroup><h2>LaTeX pour R</h2></hgroup><article  id="latex-pour-r">
+
+<p>Installer le package <strong>tinytex</strong>.</p>
+
+<p>Exécuter</p>
+
+<p></p>
+
+<pre class = 'prettyprint lang-r'>tinytex::install_tinytex()</pre>
+
+<p></p>
+
+<p>Installe une distribution très compacte de LaTeX.</p>
+
 </article></slide><slide class=""><hgroup><h2>Bibliographie</h2></hgroup><article  id="bibliographie">
 
-<p>Utiliser un gestionnaire bibliographique capable de produire un fichier <em>bib</em> : <em>Mendeley</em> ou <em>Zotero.</em></p>
+<p>Utiliser un gestionnaire bibliographique capable de produire un fichier <em>bib</em> : <em>Mendeley</em> ou <em>Zotero</em>.</p>
 
 <p><em>Jabref</em> permet de gérer totalement sa bibliographie au format <em>BibTeX</em>.</p>
 
@@ -3368,10 +3382,11 @@ devtools::install_github(&quot;EcoFoG/EcoFoG&quot;)</pre>
 <p>Installations souhaitables :</p>
 
 <ul>
-<li>ImageMagik : traitement des images ;</li>
 <li>qpdf : vérification de la compression des fichiers PDF ;</li>
 <li>Ghostscript : traitement des fichiers PDF.</li>
 </ul>
+
+<p>A compléter en temps utiles.</p>
 
 </article></slide><slide class=""><hgroup><h2>Git</h2></hgroup><article  id="git">
 
