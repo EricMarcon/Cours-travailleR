@@ -365,6 +365,24 @@ Quel est le diamètre moyen des arbres par famille ?
 Paracou6 %>% group_by(Family) %>% summarise(Dmean=mean(CircCorr)/pi, NbTrees=n()) %>% arrange(desc(Dmean))
 ```
 
+## Lier deux tables
+
+`bind_cols()` et `bindrows()`.
+
+```{r}
+t1 <- tibble(col2 = c("A", "B"), col3 = 3:4)
+tibble(col1 = 1:2) %>% bind_cols(t1)
+```
+
+Equivalent de `cbind()` et `rbind()`
+
+## Joindre deux tables
+
+`inner_join()`, `left_join()`, `right_join()` et `full_join()`
+
+```{r}
+tibble(col2 = c("B", "C"), col5 = 5:6) %>% inner_join(t1)
+```
 
 # Visualisation
 
