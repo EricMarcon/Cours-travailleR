@@ -1,5 +1,5 @@
 # Travailler avec R
-![stability-wip](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
+![stability-wip](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)
 ![rmarkdown](https://github.com/EricMarcon/Cours-travailleR/workflows/rmarkdown/badge.svg)
 
 
@@ -15,6 +15,7 @@ Utilisation courante de R.
 Formations préalables :
 - [Introduction à R et au tidyverse](https://juba.github.io/tidyverse/) : pour les faux-débutants, un excellent cours.
 - [DataCamp Start Learning R](https://www.datacamp.com/onboarding/learn?from=home&technology=r) : formation interactive.
+- [Cours R Débutant](https://ericmarcon.github.io/Cours-R-debutant/) : support de cours.
 
 
 ## Préparation
