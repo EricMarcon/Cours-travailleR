@@ -3207,7 +3207,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">13 décembre 2021</p>
+            <p style="margin-top: 6px; margin-left: -2px;">17 décembre 2021</p>
           </hgroup>
   </slide>
 
@@ -3596,6 +3596,42 @@ Paracou6 %&gt;%
 ## 4 Humiriaceae     38.6      20
 ## 5 Goupiaceae      37.4      19
 ## # … with 46 more rows</pre>
+
+<p></p>
+
+</article></slide><slide class=""><hgroup><h2>Lier deux tables</h2></hgroup><article  id="lier-deux-tables">
+
+<p><code>bind_cols()</code> et <code>bindrows()</code>.</p>
+
+<p></p>
+
+<pre class = 'prettyprint lang-r'>t1 &lt;- tibble(col2 = c(&quot;A&quot;, &quot;B&quot;), col3 = 3:4)
+tibble(col1 = 1:2) %&gt;%
+    bind_cols(t1)</pre>
+
+<pre >## # A tibble: 2 × 3
+##    col1 col2   col3
+##   &lt;int&gt; &lt;chr&gt; &lt;int&gt;
+## 1     1 A         3
+## 2     2 B         4</pre>
+
+<p></p>
+
+<p>Equivalent de <code>cbind()</code> et <code>rbind()</code></p>
+
+</article></slide><slide class=""><hgroup><h2>Joindre deux tables</h2></hgroup><article  id="joindre-deux-tables">
+
+<p><code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code> et <code>full_join()</code></p>
+
+<p></p>
+
+<pre class = 'prettyprint lang-r'>tibble(col2 = c(&quot;B&quot;, &quot;C&quot;), col5 = 5:6) %&gt;%
+    inner_join(t1)</pre>
+
+<pre >## # A tibble: 1 × 3
+##   col2   col5  col3
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+## 1 B         5     4</pre>
 
 <p></p>
 

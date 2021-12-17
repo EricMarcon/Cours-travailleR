@@ -3207,7 +3207,7 @@ slide:not(.current) .plotly.html-widget{
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">13 décembre 2021</p>
+            <p style="margin-top: 6px; margin-left: -2px;">17 décembre 2021</p>
           </hgroup>
   </slide>
 
@@ -3286,7 +3286,7 @@ pryr::otype(print)</pre>
 
 <pre >## function (x, ...) 
 ## UseMethod(&quot;print&quot;)
-## &lt;bytecode: 0x7f90bf517bb0&gt;
+## &lt;bytecode: 0x7f91f4e34ed8&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 <p></p>
@@ -3639,16 +3639,16 @@ y &lt;- 2</pre>
 
 <pre class = 'prettyprint lang-r'>environment()</pre>
 
-<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
+<pre >## &lt;environment: 0x7f91fd52a718&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>f &lt;- function() environment()
 f()</pre>
 
-<pre >## &lt;environment: 0x7f90c6a5b858&gt;</pre>
+<pre >## &lt;environment: 0x7f91fac4d238&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>parent.env(f())</pre>
 
-<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
+<pre >## &lt;environment: 0x7f91fd52a718&gt;</pre>
 
 <p></p>
 
@@ -4134,7 +4134,7 @@ array
 
 <pre >## function (..., deparse.level = 1) 
 ## .Internal(cbind(deparse.level, ...))
-## &lt;bytecode: 0x7f90bde7a280&gt;
+## &lt;bytecode: 0x7f91f4cc1480&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 
@@ -4242,7 +4242,7 @@ array
 ##     }
 ##     else ans
 ## }
-## &lt;bytecode: 0x7f90bf599950&gt;
+## &lt;bytecode: 0x7f91f4ec57c0&gt;
 ## &lt;environment: namespace:base&gt;</pre>
 
 
@@ -4300,12 +4300,12 @@ array
 
 <pre class = 'prettyprint lang-r'>environment()</pre>
 
-<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
+<pre >## &lt;environment: 0x7f91fd52a718&gt;</pre>
 
 <pre class = 'prettyprint lang-r'>f &lt;- function() environment()
 f()</pre>
 
-<pre >## &lt;environment: 0x7f90c044fad0&gt;</pre>
+<pre >## &lt;environment: 0x7f91f9f06ef0&gt;</pre>
 
 
 
@@ -4315,7 +4315,7 @@ f()</pre>
 
 <pre class = 'prettyprint lang-r'>parent.env(f())</pre>
 
-<pre >## &lt;environment: 0x7f90c6166060&gt;</pre>
+<pre >## &lt;environment: 0x7f91fd52a718&gt;</pre>
 
 
 
@@ -4545,7 +4545,7 @@ sqrt(x1)</pre>
 ##         return(Log)
 ##     }
 ## }
-## &lt;bytecode: 0x7f90c41069e8&gt;
+## &lt;bytecode: 0x7f91f5230778&gt;
 ## &lt;environment: namespace:entropart&gt;</pre>
 
 
@@ -4587,10 +4587,10 @@ mb &lt;- microbenchmark(sqrt(x1), sapply(x1, FUN = sqrt),
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                              expr   median
-## 1                        sqrt(x1)   5.4350
-## 2          sapply(x1, FUN = sqrt) 390.8225
-## 3                lapply(x1, sqrt) 324.6225
-## 4 vapply(x1, sqrt, FUN.VALUE = 0) 325.5735</pre>
+## 1                        sqrt(x1)   5.5795
+## 2          sapply(x1, FUN = sqrt) 375.8830
+## 3                lapply(x1, sqrt) 316.9125
+## 4 vapply(x1, sqrt, FUN.VALUE = 0) 318.7180</pre>
 
 
 
@@ -4617,8 +4617,8 @@ mb &lt;- microbenchmark(Vapply(x1), Boucle(x1))
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##         expr   median
-## 1 Vapply(x1) 330.4825
-## 2 Boucle(x1) 154.9525</pre>
+## 1 Vapply(x1) 307.3500
+## 2 Boucle(x1) 139.6345</pre>
 
 
 
@@ -4706,8 +4706,8 @@ Paracou6X[1:2, ]</pre>
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                       expr   median
-## 1 apply(Paracou6X, 2, sum) 144.8555
-## 2       colSums(Paracou6X)  81.2695</pre>
+## 1 apply(Paracou6X, 2, sum) 144.9430
+## 2       colSums(Paracou6X)  81.4935</pre>
 
 <pre class = 'prettyprint lang-r'>colSums(Paracou6X)</pre>
 
@@ -4727,8 +4727,8 @@ summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                                     expr  median
-## 1 apply(Paracou6X, 2, function(x) x &gt; 0) 215.958
-## 2                 colSums(Paracou6X &gt; 0) 102.333</pre>
+## 1 apply(Paracou6X, 2, function(x) x &gt; 0) 211.928
+## 2                 colSums(Paracou6X &gt; 0)  98.146</pre>
 
 <pre class = 'prettyprint lang-r'>colSums(Paracou6X &gt; 0)</pre>
 
@@ -4768,8 +4768,8 @@ mb &lt;- microbenchmark(Boucle(Paracou6X), Apply(Paracou6X))
 summary(mb)[, c(&quot;expr&quot;, &quot;median&quot;)]</pre>
 
 <pre >##                expr   median
-## 1 Boucle(Paracou6X) 5.906906
-## 2  Apply(Paracou6X) 6.006956</pre>
+## 1 Boucle(Paracou6X) 5.634958
+## 2  Apply(Paracou6X) 5.806997</pre>
 
 
 
